@@ -74,6 +74,7 @@ class DailyLog extends Component {
                 <input type="text" onChange={this.handleInputChange} />
                 <button onClick={this.query}>Click</button>
                 {queryResults}
+                <p>this is currently being developed</p>
             </div>
         )
     }
