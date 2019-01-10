@@ -25,6 +25,12 @@ class DailyLog extends Component {
         })
     }
 
+    keyPress = e => {
+        if(e.keyCode == 13){
+            this.query()
+        }
+    }
+
     render(){
         let queryResults = this.state.queryResults.map(e => {
             return(
@@ -32,7 +38,7 @@ class DailyLog extends Component {
                     calories={e.food.nutrients.ENERC_KCAL}
                     id={e.food.foodId}
                     key={e.food.foodId}
-                    measureURI={e.measures[0].uri}
+                    measures={e.measures}
                     foodURI={e.food.uri}
                     />
             )
@@ -40,7 +46,7 @@ class DailyLog extends Component {
         return(
             <div>
                 <h1>Daily Food Log</h1>
-                <input type="text" onChange={this.handleInputChange} placeholder="search food items" />
+                <input type="text" onChange={this.handleInputChange} onKeyDown={this.keyPress} placeholder="search food items" />
                 <i className="fas fa-search" style={{color:"grey"}} onClick={this.query} ></i>
                 {queryResults}
             </div>
