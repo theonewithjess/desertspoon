@@ -32,6 +32,8 @@ class DailyLog extends Component {
                     calories={e.food.nutrients.ENERC_KCAL}
                     id={e.food.foodId}
                     key={e.food.foodId}
+                    measureURI={e.measures[0].uri}
+                    foodURI={e.food.uri}
                     />
             )
         })
