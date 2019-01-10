@@ -13,7 +13,7 @@ module.exports = {
                 return res.status(401).send('email not found')
             }
 
-            const isAuthenticated = bcrypt.compareSynce(password, user.password)
+            const isAuthenticated = bcrypt.compareSync(password, user.password)
 
             if(!isAuthenticated){
                 return res.status(403).send('incorrect password')
@@ -30,7 +30,7 @@ module.exports = {
     register: async (req, res) => {
         try{
             const db = req.app.get('db')
-            const {first_name, email, password} = req.body
+            const {firstName, lastName, email, password, calorieGoal} = req.body
             
 
             let userResponse = await db.getUserByEmail(email)
@@ -43,7 +43,7 @@ module.exports = {
             
             const hash = bcrypt.hashSync(password, salt)
             
-            let response = await db.createUser({first_name, email, hash})
+            let response = await db.createUser({firstName, lastName, email, hash, calorieGoal})
             console.log(333333333, response)
             let newUser = response[0]
 

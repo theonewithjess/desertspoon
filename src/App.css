@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+  font-family: 'Exo', sans-serif;
+  min-height: 100vh;
+  overflow: hidden;
+  display: block;
+  position: relative;
+  
 }
 
 .App-logo {
@@ -21,12 +27,194 @@
 .App-link {
   color: #61dafb;
 }
+.navbar{
+  background-color: darkslategrey;
+  opacity: .99;
+  height: 50px;
+  
+  font-size: calc(10px + 2vmin);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  
+ 
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+}
+.company-name{
+  text-decoration: none;
+  opacity: .90;
+  color: white;
+  font-family: cursive;
+  letter-spacing: 5px;
+  /* font-weight: bold; */
+  font-size: 25px;
+  padding: 5px;
+  padding-left: 25px;
+  transition: color .25s;
+  /* border: 1px solid red; */
+  position: relative;
+}
+.company-name:hover{
+  color: rosybrown;
+}
+.company-name:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background: rosybrown;
+  visibility: hidden;
+  border-radius: 2px;
+  transform: scaleX(0);
+  transition: .25s linear;
+}
+.company-name:hover:before,
+.company-name:focus:before {
+  visibility: visible;
+  transform: scaleX(1.2);
+}
+.nav-link{
+  opacity: .90;
+  padding: 11px;
+  color: white;
+  transition: color .25s;
+  font-size: 20px;
+  text-decoration: none;
+  position: relative;
+  /* border: 1px solid blue; */
+}
+.nav-link:hover{
+  color: rosybrown;
+}
+.nav-link:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background: rosybrown;
+  visibility: hidden;
+  border-radius: 2px;
+  transform: scaleX(0);
+  transition: .25s linear;
+}
+.nav-link:hover:before,
+.nav-link:focus:before {
+  visibility: visible;
+  transform: scaleX(1.2);
+}
+.links{
+  /* border: 2px solid red; */
+  width: 25%;
+  padding: 5px;
+  display: flex;
+  justify-content: space-evenly;
+  font-family: 'Thasadith', sans-serif;
+}
+.menu{
+  transition: color .25s;
+}
+.menu:hover{
+  color: rosybrown;
+}
+
+
+
+
+.drop-menu{
+  border: .5px solid darkslategrey;
+  /* border-radius: 5px; */
+  right: 0;
+  top: 50px;
+  position: absolute;
+  background-color: rgb(47, 79, 79, .9);
+  width: 300px;
+  min-height: 99vh;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin: auto;
+ 
+
+}
+
+.login-container{
+  padding-top: 100px;
+}
+.landing-1{
+  height: 100vh;
+  background-image: url('./banana-berries-berry-775031.jpg') ;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+}
+.welcome-div{
+  /* border: 1px solid red; */
+  font-family: 'Thasadith', sans-serif;
+  width: 45%;
+  height: 60vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.inner-welcome-div{
+  /* border: 1px solid blue; */
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 75%;
+}
+.title{
+  font-size: 60px;
+  color: darkslategrey;
+  /* border: 1px solid green; */
+}
+#landing-p{
+  width: 75%;
+  /* border: 1px solid purple; */
+}
+#landing-button{
+  height: 50px;
+  width: 100%;
+  background-color: darkslategrey;
+  border: 1px solid darkslategrey;
+  font-size: 20px;
+  border-radius: 5px;
+  color: azure;
+  transition: opacity .5s;
+}
+#landing-button:hover{
+  /* color: rosybrown; */
+  opacity: .80;
+}
+#landing-button:active{
+  box-shadow: 0 2px white;
+  transform: translateY(1px);
+  outline: none;
+}
+.landing-2{
+  height: 75vh;
+  background-color: rgb(250, 250, 250);
+}
+.landing-3{
+  height: 90vh;
+  background-color: red;
+}
+.landing-4{
+  height: 100vh;
+  background-color: blue;
 }
