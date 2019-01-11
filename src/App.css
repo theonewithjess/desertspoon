@@ -49,11 +49,11 @@
   text-decoration: none;
   opacity: .90;
   color: white;
-  font-family: cursive;
-  letter-spacing: 5px;
-  /* font-weight: bold; */
+  font-family: 'Thasadith', sans-serif;
+  letter-spacing: 7px;
+  font-weight: bold;
   font-size: 25px;
-  padding: 5px;
+  padding: 15px;
   padding-left: 25px;
   transition: color .25s;
   /* border: 1px solid red; */
@@ -82,7 +82,7 @@
 }
 .nav-link{
   opacity: .90;
-  padding: 11px;
+  padding: 17px;
   color: white;
   transition: color .25s;
   font-size: 20px;
@@ -114,19 +114,24 @@
 .links{
   /* border: 2px solid red; */
   width: 25%;
-  padding: 5px;
+  padding: 15px;
   display: flex;
+  
   justify-content: space-evenly;
   font-family: 'Thasadith', sans-serif;
 }
 .menu{
   transition: color .25s;
+  margin: auto;
 }
 .menu:hover{
   color: rosybrown;
 }
 
-
+.log-div{
+  display: flex;
+  /* flex-direction: column; */
+}
 
 
 .drop-menu{
@@ -152,7 +157,7 @@
 }
 .landing-1{
   height: 100vh;
-  background-image: url('./banana-berries-berry-775031.jpg') ;
+  background-image: url('./hermes-rivera-258743-unsplash.jpg') ;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -170,21 +175,45 @@
   flex-direction: row;
   justify-content: space-evenly;
 }
+.welcome{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin: auto;
+  /* border: 1px solid green; */
+  height: 20vh;
+  
+}
 .inner-welcome-div{
   /* border: 1px solid blue; */
   height: 20vh;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  width: 75%;
+  width: 80%;
+  margin: auto;
+}
+.outer-welcome-div{
+  /* border: 2px solid red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 45vh;
+  margin: auto;
+  
 }
 .title{
   font-size: 60px;
   color: darkslategrey;
   /* border: 1px solid green; */
+  margin: auto;
 }
 #landing-p{
-  width: 75%;
+  width: 100%;
+  margin: auto;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-evenly;
   /* border: 1px solid purple; */
 }
 #landing-button{
@@ -207,14 +236,218 @@
   outline: none;
 }
 .landing-2{
-  height: 75vh;
-  background-color: rgb(250, 250, 250);
+  height: 80vh;
+  background-image: linear-gradient(rgb(235, 235, 235, .6), white);
+  /* border: 1px solid red; */
+}
+.search-div{
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 25vh;
+}
+.search-bar{
+  width: 80%;
+  height: 60px;
+  /* background-color: darkslategrey; */
+  border-radius: 30px;
+  border-style: unset;
+  outline: none;
+  margin: auto;
+  padding-left: 50px;
+  font-size: 25px;
+}
+.search-container{
+  /* border: 2px solid red; */
+  width: 70%;
+  margin: auto;
+  font-size: 30px;
+  padding: 10px;
+}
+#search-title{
+  font-size: 20px;
+  padding-top: 25px;
+  font-family: 'Thasadith', sans-serif;
+  /* font-weight: bold; */
+}
+#tracker-title{
+  font-size: 20px;
+  padding-top: 5px;
+  font-family: 'Thasadith', sans-serif;
+}
+.fa-search{
+  padding: 10px;
+  color: rgb(47, 79, 79, .8);
+}
+.features{
+  /* border: 1px solid red;  */
+  margin: auto;
+  height: 55vh;
+  width: 90%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.feature-container{
+  /* border: 1px solid green; */
+  height: 45vh;
+  width: 30%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5px;
+  background-color: white;
+  border-radius: 5px;
+  
+}
+.feature-pie{
+  /* border: 1px solid blue; */
+  height: 35vh;
+  background-image: url('./PieChart\ 2019-01-11\ at\ 3.37.01\ PM.png') ;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; 
+  
+
+ 
+
+}
+.feature-graph{
+  /* border: 1px solid blue; */
+  height: 35vh;
+  background-image: url('./BarGraph\ 2019-01-11\ at\ 3.37.29\ PM.png') ;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; 
+  
+
+ 
+
+}
+.feature-search{
+  /* border: 1px solid blue; */
+  height: 35vh;
+  background-image: url('./Screen\ Shot\ 2019-01-11\ at\ 3.38.28\ PM.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
+  
+
+ 
+
+}
+
+#feature-p{
+  padding: 10px;
+  overflow-wrap: break-word;
+  font-family: 'Thasadith', sans-serif; 
+  font-size: 1.5rem;
 }
 .landing-3{
   height: 90vh;
-  background-color: red;
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+}
+.victory-carousel{
+  /* border: 1px solid blue; */
+  background-color: rgb(47, 79, 79, .8);
+  height: 500px;
+  width: 75%;
+  margin: auto;
+  border-radius: 10px;
+}
+#land3-4{
+  width: 70%;
 }
 .landing-4{
   height: 100vh;
-  background-color: blue;
+  /* background-color: blue; */
+  /* box-shadow: 2px outset darkslategrey; */
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-content: center;
+  font-family: 'Thasadith', sans-serif;
+}
+.dev-team{
+  background-image: url('http://ios-resources.devmountain.com/public/icon.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* border: 1px solid blue; */
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: center;
+  margin: auto;
+  box-shadow: 0px 0px 2px 3px rgb(47, 79, 79, .8);
+}
+.dev-container{
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  margin: auto;
+  /* border: 2px solid red; */
+  width: 30%;
+  height: 70vh;
+}
+
+
+@media(max-width: 500px){
+  .company-name{
+    text-decoration: none;
+    opacity: .90;
+    color: white;
+    font-family: cursive;
+    letter-spacing: 2px;
+    /* font-weight: bold; */
+    font-size: 18px;
+    padding: 5px;
+    padding-left: 20px;
+    transition: color .25s;
+    /* border: 1px solid red; */
+    position: relative;
+  }
+  
+  .nav-link{
+    opacity: .90;
+    padding: 3px;
+    color: white;
+    transition: color .25s;
+    font-size: 12px;
+    text-decoration: none;
+    position: relative;
+    /* border: 1px solid blue; */
+  }
+  .welcome-div{
+    /* border: 1px solid red; */
+    font-family: 'Thasadith', sans-serif;
+    width: 80%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: auto;
+  }
+  .inner-welcome-div{
+    /* border: 1px solid blue; */
+    
+    width: 100%;
+  }
+  #landing-p{
+    width: 100%;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .landing-1{
+   
+  }
 }

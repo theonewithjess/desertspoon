@@ -29,7 +29,7 @@ class Header extends Component {
         const currentScrollY = window.scrollY
         
         if(currentScrollY > lastScrollY){
-            this.setState({ slide: '-1px' })
+            this.setState({ slide: '-50px' })
         }else {
             this.setState({ slide: '0px' })
         }
@@ -57,11 +57,25 @@ class Header extends Component {
                
                 <Link to="/" className="company-name">DESERT SPOON</Link>
                 <div className="links">
-                    <div>
+                    
+                        {
+                            this.props.isAuthenticated ?
 
-                        <Link to="/login" className="nav-link">Login</Link>
-                        <Link to="/" className="nav-link" onClick={this.handleLogout}>Logout</Link>
-                    </div>
+                        <div className="log-div">
+                            
+                            <Link to="/" className="nav-link">Welcome {this.props.user.first_name}</Link>
+                            <Link to="/" className="nav-link" onClick={this.handleLogout}>Logout</Link>
+                        </div>
+                            :
+                        <div className="log-div">
+
+                            <Link to="/login" className="nav-link">Login</Link>
+                            <Link to="/register" className="nav-link">Sign up</Link>
+                        </div>
+                        }
+                        
+                        
+                    
                     
                     <span className="menu"><i className="fa fa-bars" onClick={this.showMenu} transition={10000} ></i></span>
                     {

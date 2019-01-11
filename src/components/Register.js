@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import {userLoggedIn} from '../ducks/reducer'
 import {Link} from 'react-router-dom'
 import axios from 'axios';
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from './Header';
 
@@ -18,6 +18,7 @@ class Register extends Component {
             lastName: '',
             email: '',
             password: '',
+            confirmPassword: '',
             calorieGoal: '',
             error: ''
         }
@@ -30,27 +31,35 @@ class Register extends Component {
     }
     
     handleKeyPress = (event) => {
-        if(event.key==="Enter"){
+        
+            if(event.key==="Enter"){
+                // axios.post('/auth/register', this.state).then(response => {
+                //     console.log(1111111, response)
+                //     let user = response.data
+                //     this.props.userLoggedIn(user)
+                // }).catch(error => {
+                //     console.log(error.response)
+                //     toast.error('email already exists')
+                // })
+                this.handleRegister()
+            }
+    }
+
+    handleRegister = () => {
+        if(this.state.password === this.state.confirmPassword){
             axios.post('/auth/register', this.state).then(response => {
                 console.log(1111111, response)
                 let user = response.data
                 this.props.userLoggedIn(user)
             }).catch(error => {
                 console.log(error.response)
-                toast.error('email already exists')
+                toast.error('email already exists, or invalid')
             })
-        }
-    }
 
-    handleRegister = () => {
-        axios.post('/auth/register', this.state).then(response => {
-            console.log(1111111, response)
-            let user = response.data
-            this.props.userLoggedIn(user)
-        }).catch(error => {
-            console.log(error.response)
-            toast.error('email already exists, or invalid')
-        })
+        }else{
+            toast.error('passwords dont match')
+        
+        }
     }
     
 
@@ -89,6 +98,12 @@ class Register extends Component {
                             <label>Password</label>
                         </div>
                         <div className="group">
+                            <input value={this.state.confirmPassword} onChange={this.handleChange} onKeyPress={this.handleKeyPress} type="password" name="confirmPassword" required/>
+                            <span className="highlight"></span>
+                            <span className="bar"></span>
+                            <label>Confirm password</label>
+                        </div>
+                        <div className="group">
                             <input value={this.state.calorieGoal} onChange={this.handleChange} onKeyPress={this.handleKeyPress}  type="text" name="calorieGoal" required/>
                             <span className="highlight"></span>
                             <span className="bar"></span>
@@ -102,6 +117,17 @@ class Register extends Component {
                         <button className="cart-button" onClick={this.handleRegister}>Register</button>
                         <Link to="/login"><button className="cart-button">Back</button></Link>
                         {this.state.error}
+                        <ToastContainer
+                            position="top-left"
+                            autoClose={4000}
+                            hideProgressBar={false}
+                            newestOnTop={false}
+                            closeOnClick
+                            rtl={false}
+                            pauseOnVisibilityChange
+                            draggable
+                            pauseOnHover
+                        />
                     </div>
                 </section>
 

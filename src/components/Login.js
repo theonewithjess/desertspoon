@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import {Redirect} from 'react-router-dom'
 import {userLoggedIn} from '../ducks/reducer'
 import axios from 'axios'
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {Link} from 'react-router-dom'
 import './Login.css'
 import Header from '../components/Header'
-
+// import {Redirect} from 'react-router-dom'
 
 
 class Login extends Component {
@@ -18,6 +18,7 @@ class Login extends Component {
         this.state = {
             email: '',
             password: '',
+            confirmPassword: '',
             error: ''
         }
     }
@@ -32,34 +33,34 @@ class Login extends Component {
             password
         })
     }
-
+    handlePasswordConfirm(confirmPassword){
+        this.setState({
+            confirmPassword
+        })
+    }
     handleKeyPress = (event) => {
         if( event.key==="Enter" ){
-            axios.post('/auth/login', this.state).then(response => {
-                let user = response.data
-                this.props.userLoggedIn(user)
-                toast.success('Successfully logged in')
-            }).catch(error => {
-                console.log(error.response)
-                
-            })
+            this.handleLogin()
         }  
     }
 
     handleLogin = () => {
-        if( !this.state.email[0] || !this.state.password[0]){
-            toast.error('Incorrect email or password')
-        }else{
-            axios.post('/auth/login', this.state).then(response => {
-                let user = response.data
-                this.props.userLoggedIn(user)
-                toast.success('Successfully logged in')
-            }).catch(error => {
-                console.log(error.response)
-                toast.error('The email or password you entered is incorrect')
-            })
+        
+            if(this.state.password === this.state.confirmPassword){
+                axios.post('/auth/login', this.state).then(response => {
+                    let user = response.data
+                    this.props.userLoggedIn(user)
+                    toast.success('Successfully logged in')
+                }).catch(error => {
+                    console.log(error.response)
+                    toast.error('The email or password you entered is incorrect')
+                })
 
-        }
+            }else{
+                toast.error('password doesnt match')
+            }
+
+        
     }
 
 
@@ -69,7 +70,8 @@ class Login extends Component {
 
 
     render() {
-        return (
+        return this.props.isAuthenticated ? 
+            <Redirect to="/"/> :
             <div className="login-component">
            
          
@@ -91,6 +93,13 @@ class Login extends Component {
                         <span className="bar"></span>
                         <label>Password</label>
                     </div>
+
+                    <div className="group">
+                        <input onChange={ (e) => this.handlePasswordConfirm( e.target.value ) } onKeyPress={this.handleKeyPress} type="password" required/>
+                        <span className="highlight"></span>
+                        <span className="bar"></span>
+                        <label>Confirm Password</label>
+                    </div>
                     
                 </div>
 
@@ -99,6 +108,17 @@ class Login extends Component {
                     <Link to="/register"><button className="cart-button">Register</button></Link>
                     
                 </div>
+                <ToastContainer
+                            position="top-left"
+                            autoClose={4000}
+                            hideProgressBar={false}
+                            newestOnTop={false}
+                            closeOnClick
+                            rtl={false}
+                            pauseOnVisibilityChange
+                            draggable
+                            pauseOnHover
+                        />
                
             </section>
 
@@ -107,7 +127,7 @@ class Login extends Component {
             
             
         </div>
-        )
+        
     }
 }
 
