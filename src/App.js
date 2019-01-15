@@ -3,6 +3,7 @@ import './App.css';
 import {connect} from 'react-redux'
 import {Switch, Route, withRouter} from 'react-router-dom'
 import DailyLog from './components/DailyLog'
+import Query from './components/Query'
 
 
 class App extends Component {
@@ -11,6 +12,7 @@ class App extends Component {
       <div className="App">
         <h1>desertspoon.com</h1>
         <DailyLog />
+        <Query />
       </div>
     );
   }

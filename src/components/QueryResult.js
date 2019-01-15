@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import NutrientDetails from './NutrientDetails'
 
 class QueryResult extends Component {
-    constructor(props){
+    constructor(){
         super()
         this.state = {
             showDetails: false        
@@ -20,7 +20,7 @@ class QueryResult extends Component {
                 <div style={{width:"500px", height:"25px", border:"1px solid grey", display:"flex", justifyContent:"space-between"}}>
                     {name}
                     <div style={{width:"100px", display:"flex", flexDirection:"row", justifyContent:"flex-end", alignItems:"center", alignContent:"flex-end"}}>
-                        <p style={{padding:"5px"}}>{calories.toFixed(0)} cal</p>
+                        <p style={{padding:"5px"}}>{calories ? calories.toFixed(0) : 0} cal</p>
                         {this.state.showDetails ? <i className="fas fa-caret-up" style={{color:"grey"}} onClick={this.toggleDetails}></i> : <i className="fas fa-caret-down" style={{color:"grey"}} onClick={this.toggleDetails} ></i>}
                     </div>
                 </div>

@@ -4,7 +4,7 @@ const APP_ID = `${process.env.REACT_APP_APP_ID}`
 const APP_KEY = `${process.env.REACT_APP_APP_KEY}`
 
 export default class NutrientDetails extends Component {
-    constructor(props){
+    constructor(){
         super()
         this.state = {
             measure: "",
@@ -14,7 +14,8 @@ export default class NutrientDetails extends Component {
             quantity: 1.00,
             displayNutrientDetails: false,
             selectedMeal: "",
-            selectedDate: "2019-01-11"
+            selectedDate: "2019-01-11",
+            meals: ["Breakfast", "Lunch", "Dinner", "Snacks"]
         }
     }
 
@@ -22,7 +23,8 @@ export default class NutrientDetails extends Component {
         console.log("measures", this.props.measures[0])
         this.setState({
             measure: this.props.measures[0].label,
-            measureURI: this.props.measures[0].uri
+            measureURI: this.props.measures[0].uri,
+            selectedMeal: this.state.meals[0]
         })
     }
 
@@ -94,8 +96,7 @@ export default class NutrientDetails extends Component {
                 <option key={i} value={measureURI}>{e.label}</option>
             )
         })
-        let mealsArray = ["Breakfast", "Lunch", "Dinner", "Snacks"]
-        let meals = mealsArray.map((e, i) => {
+        let meals = this.state.meals.map((e, i) => {
             return (
                 <option key={i} value={e}>{e}</option>
             )

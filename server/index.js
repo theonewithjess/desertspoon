@@ -31,8 +31,8 @@ massive(CONNECTION_STRING).then(db => {
 //food log endpoints
 app.get('/api/foodlog', fl.getLog)
 app.post('/api/foodlog', fl.addToLog)
-app.put('/api/foodlog', fl.updateLogItem)
-app.delete('/api/foodlog', fl.deleteLogItem)
+// app.put('/api/foodlog/:id', fl.updateLogItem)
+app.delete('/api/foodlog/:id', fl.deleteLogItem)
 
 
 
