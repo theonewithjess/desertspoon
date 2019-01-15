@@ -4,10 +4,8 @@ const express = require('express'),
     bodyParser = require('body-parser'),
     massive = require('massive'),
     session = require('express-session'),
-    {CONNECTION_STRING, SERVER_PORT: PORT, SESSION_SECRET, APP_ID, APP_KEY} = process.env
- // controllers
-
-
+    {CONNECTION_STRING, SERVER_PORT: PORT, SESSION_SECRET, APP_ID, APP_KEY} = process.env,
+    fl = require('./controller/FoodLog')
 
 app.use(bodyParser.json())
 
@@ -31,8 +29,10 @@ massive(CONNECTION_STRING).then(db => {
 
 
 //food log endpoints
-
-
+app.get('/api/foodlog', fl.getLog)
+app.post('/api/foodlog', fl.addToLog)
+app.put('/api/foodlog', fl.updateLogItem)
+app.delete('/api/foodlog', fl.deleteLogItem)
 
 
 

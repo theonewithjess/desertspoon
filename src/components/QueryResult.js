@@ -24,7 +24,7 @@ class QueryResult extends Component {
                         {this.state.showDetails ? <i className="fas fa-caret-up" style={{color:"grey"}} onClick={this.toggleDetails}></i> : <i className="fas fa-caret-down" style={{color:"grey"}} onClick={this.toggleDetails} ></i>}
                     </div>
                 </div>
-                {this.state.showDetails ? <NutrientDetails measures={this.props.measures} foodURI={this.props.foodURI}/> : null}
+                {this.state.showDetails && <NutrientDetails measures={this.props.measures} foodURI={this.props.foodURI} name={this.props.name}/>}
             </div>
         )
     }

@@ -12,7 +12,9 @@ export default class NutrientDetails extends Component {
             calories: 0,
             nutrientDetails: {},
             quantity: 1.00,
-            displayNutrientDetails: false
+            displayNutrientDetails: false,
+            selectedMeal: "",
+            selectedDate: "2019-01-11"
         }
     }
 
@@ -55,6 +57,36 @@ export default class NutrientDetails extends Component {
         })
     }
 
+    updateMeal = e => {
+        this.setState({
+            selectedMeal: e.target.value
+        })
+    }
+
+    addToLog = () => {
+        let {calories, measure, measureURI, quantity, selectedMeal, selectedDate} = this.state
+        let {foodURI, name} = this.props
+        let fat = this.state.nutrientDetails.FAT ? this.state.nutrientDetails.FAT.quantity.toFixed(0) : 0
+        let carbohydrates = this.state.nutrientDetails.CHOCDF ? this.state.nutrientDetails.CHOCDF.quantity.toFixed(0) : 0
+        let protein = this.state.nutrientDetails.PROCNT ? this.state.nutrientDetails.PROCNT.quantity.toFixed(0) : 0
+        axios.post('/api/foodlog', {
+            date: selectedDate,
+            meal: selectedMeal,
+            name,
+            foodURI,
+            measure, 
+            measureURI,
+            quantity,
+            calories,
+            fat,
+            carbohydrates,
+            protein
+        }).then(res => {
+            console.log(res)
+            // this.props.history.push('/dailylog')
+        })
+    }
+
     render() {
         let measures = this.props.measures.map((e, i) => {
             let measureURI = e.label + '|' + e.uri
@@ -69,6 +101,7 @@ export default class NutrientDetails extends Component {
             )
         })
         let n= this.state.nutrientDetails
+        console.log("state", this.state)
     return (
       <div>
           <div>
@@ -77,8 +110,8 @@ export default class NutrientDetails extends Component {
             <i className="fas fa-calculator" onClick={this.calculate} style={{color:"grey"}}></i>
           </div>
           <div>
-            add to <select>{meals}</select>
-            <i className="fas fa-plus-circle" style={{color:"grey"}}></i>
+            add to <select onChange={this.updateMeal} value={this.state.selectedMeal}>{meals}</select>
+            <i className="fas fa-plus-circle" onClick={this.addToLog} style={{color:"grey"}}></i>
           </div>
           <div>
             {this.state.displayNutrientDetails && <div>
