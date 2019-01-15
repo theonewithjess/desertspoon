@@ -10,7 +10,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>desertspoon.com</h1>
+        <h1>DESERTSPOON</h1>
         <DailyLog />
         <Query />
       </div>

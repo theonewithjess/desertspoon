@@ -45,7 +45,7 @@ class DailyLog extends Component {
         })
         return(
             <div>
-                <h1>Daily Food Log</h1>
+                <h1>Search Food</h1>
                 <input type="text" onChange={this.handleInputChange} onKeyDown={this.keyPress} placeholder="search food items" />
                 <i className="fas fa-search" style={{color:"grey"}} onClick={this.query} ></i>
                 {queryResults}

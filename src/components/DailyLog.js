@@ -128,7 +128,7 @@ export default class DailyLog extends Component {
         })
         return (
             <div>
-                food log here
+                <h1>Today's Date</h1>
                 <div>
                     Breakfast <i className="fas fa-plus-circle" style={{color:"grey"}}></i>
                     {breakfast}
