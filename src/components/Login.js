@@ -104,10 +104,11 @@ class Login extends Component {
                 </div>
 
                 <div className="login-buttons">
-                    <button className="cart-button" onClick={ this.handleLogin }>Login</button>
-                    <Link to="/register"><button className="cart-button">Register</button></Link>
+                    <button className="login-button" onClick={ this.handleLogin }>Login</button>
+                    <p id="signup-link">Not a member? <Link to="/register">Sign up now</Link></p>
                     
                 </div>
+          
                 <ToastContainer
                             position="top-left"
                             autoClose={4000}

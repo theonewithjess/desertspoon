@@ -63,13 +63,14 @@ class Header extends Component {
 
                         <div className="log-div">
                             
-                            <Link to="/" className="nav-link">Welcome {this.props.user.first_name}</Link>
+                            
                             <Link to="/" className="nav-link" onClick={this.handleLogout}>Logout</Link>
                         </div>
                             :
                         <div className="log-div">
 
                             <Link to="/login" className="nav-link">Login</Link>
+                            <p className="nav-link">|</p>
                             <Link to="/register" className="nav-link">Sign up</Link>
                         </div>
                         }

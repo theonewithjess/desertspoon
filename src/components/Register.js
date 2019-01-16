@@ -112,10 +112,10 @@ class Register extends Component {
                         
                     </div>
 
-                    <div className="register-buttons">
+                    <div className="login-buttons">
                         
-                        <button className="cart-button" onClick={this.handleRegister}>Register</button>
-                        <Link to="/login"><button className="cart-button">Back</button></Link>
+                        <button className="login-button" onClick={this.handleRegister}>Register</button>
+                        <p id="signup-link">Have an account? <Link to="/login">Log in</Link></p>
                         {this.state.error}
                         <ToastContainer
                             position="top-left"

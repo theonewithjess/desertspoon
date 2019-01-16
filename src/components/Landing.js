@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import Header from './Header'
+import {connect} from 'react-redux'
 
 
 
-export default class Landing extends Component {
+class Landing extends Component {
   render() {
     return (
         <div>
@@ -14,13 +15,27 @@ export default class Landing extends Component {
                 <div className="welcome-div">
                     <div className="outer-welcome-div">
                         <div className="welcome">
-                            <h1 className="title">You are what you eat</h1>
+                            {
+                                this.props.isAuthenticated ?
+                                <h1 className="title">Welcome, {this.props.user.first_name}!</h1>
+                                :
+                                <h1 className="title">You are what you eat</h1>
+
+                            }
                             <p id="landing-p">Know what you're eating. Fuel the right way. Start today. </p>
                         </div>
-                        <div className="inner-welcome-div">
-                            <Link to="/register"><button id="landing-button">Start for FREE!</button></Link>
+                        {
+                            this.props.isAuthenticated ?
+                            <div className="inner-welcome-div">
+                                <Link to="/"><button id="landing-button">Track your goals HERE!</button></Link>
+                            </div>
+                            :
+                            <div className="inner-welcome-div">
+                                <Link to="/register"><button id="landing-button">Start for FREE!</button></Link>
+                                <p>Already have an account? <Link to="/login">Login</Link></p>
+                            </div>
 
-                        </div>
+                        }
 
                     </div>
                 </div>
@@ -34,7 +49,7 @@ export default class Landing extends Component {
                         <i className="fa fa-search"></i>
                     </div>
                 </div>
-                    <h1 id="tracker-title">Why it works!</h1>
+                <h1 id="tracker-title">You have goals? We have tools to help you</h1>
                 <div className="features">
                     <div className="feature-container">
                         <p id="feature-p">World leading macro nutrient tracker</p>
@@ -101,3 +116,12 @@ export default class Landing extends Component {
     )
   }
 }
+function mapStateToProps(state){
+    let {isAuthenticated, user} = state
+    return{
+        isAuthenticated,
+        user
+        
+    }
+}
+export default connect(mapStateToProps)(Landing)
