@@ -42,7 +42,7 @@ class DailyLog extends Component {
     //         })
     //     }
     // }
-
+    //TEST
     toggleDetails = (id) => {
         console.log(this.state.showDetails)
         this.setState({showDetails: !this.state.showDetails})
