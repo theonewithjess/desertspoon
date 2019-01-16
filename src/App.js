@@ -10,6 +10,8 @@ import Landing from './components/Landing'
 import DailyLog from './components/DailyLog'
 import Login from './components/Login'
 import Register from './components/Register'
+import LineChart from './components/LineChart'
+import Chart from './components/Chart'
 
 
 class App extends Component {
@@ -17,7 +19,9 @@ class App extends Component {
     super()
 
     this.state = {
-      isLoading: true
+      isLoading: true,
+      chartData:{},
+      lineChartData:{}
     }
   }
 
@@ -32,6 +36,7 @@ class App extends Component {
       })
     })
   }
+
   render() {
     return this.state.isLoading ?
     <div></div>
@@ -45,8 +50,6 @@ class App extends Component {
           <Route path="/register" component={Register}/>
           <Route path="/daily-log" component={DailyLog}/>
         </Switch>
-
-        
       </div>
 
     </HashRouter>
