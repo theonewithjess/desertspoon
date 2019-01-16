@@ -15,7 +15,8 @@ export default class NutrientDetails extends Component {
             displayNutrientDetails: false,
             selectedMeal: "",
             selectedDate: "2019-01-11",
-            meals: ["Breakfast", "Lunch", "Dinner", "Snacks"]
+            meals: ["Breakfast", "Lunch", "Dinner", "Snacks"],
+            calculated: false
         }
     }
 
@@ -42,7 +43,8 @@ export default class NutrientDetails extends Component {
             this.setState({
                 calories: res.data.calories,
                 nutrientDetails: res.data.totalNutrients, 
-                displayNutrientDetails: true
+                displayNutrientDetails: true, 
+                calculated: true
             })
         }) 
     }
@@ -84,8 +86,7 @@ export default class NutrientDetails extends Component {
             carbohydrates,
             protein
         }).then(res => {
-            console.log(res)
-            // this.props.history.push('/dailylog')
+            alert('added to log')
         })
     }
 
@@ -110,10 +111,13 @@ export default class NutrientDetails extends Component {
             <select onChange={this.updateMeasure} value={this.state.measure + '|' + this.state.measureURI}>{measures}</select>
             <i className="fas fa-calculator" onClick={this.calculate} style={{color:"grey"}}></i>
           </div>
-          <div>
-            add to <select onChange={this.updateMeal} value={this.state.selectedMeal}>{meals}</select>
-            <i className="fas fa-plus-circle" onClick={this.addToLog} style={{color:"grey"}}></i>
-          </div>
+          {
+              this.state.calculated && 
+                <div>
+                    add to <select onChange={this.updateMeal} value={this.state.selectedMeal}>{meals}</select>
+                    <i className="fas fa-plus-circle" onClick={this.addToLog} style={{color:"grey"}}></i>
+                </div>
+          }
           <div>
             {this.state.displayNutrientDetails && <div>
                 <div>Calories {this.state.calories.toFixed(0)}</div>
