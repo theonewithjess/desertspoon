@@ -2,17 +2,21 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import Header from './Header'
 import {connect} from 'react-redux'
+import {searchFoods} from '../ducks/reducer'
 import Card from './Card';
 import data from '../components/data'
+import axios from 'axios'
 
-
+const APP_ID = `${process.env.REACT_APP_APP_ID}`
+const APP_KEY = `${process.env.REACT_APP_APP_KEY}`
 
 class Landing extends Component {
     constructor(props){
         super(props);
         this.state = {
             properties: data.properties,
-            property: data.properties[0]
+            property: data.properties[0],
+            query: ''        
         }
     }
         
@@ -44,12 +48,33 @@ class Landing extends Component {
         }
     }
 
+    updateInput = (e) => {
+        this.setState({
+            query: e.target.value
+        })
+    }
+
+    keyPress = e => {
+        if(e.keyCode === 13){
+            this.redirect()
+        }
+    }
+
+    redirect = e => {
+        axios.get(`https://api.edamam.com/api/food-database/parser?ingr=${this.state.query}&app_id=${APP_ID}&app_key=${APP_KEY}`).then(res => {
+            console.log(res)
+            this.props.searchFoods(res.data.hints)
+            if(this.props.location.pathname !== '/query'){
+                this.props.history.push('/query')
+            }
+        })        
+    }
 
     render() {
     const {properties, property} = this.state
     return (
         <div>
-            <Header/>
+            
             <div className="landing-1">
             
                 <div className="welcome-div">
@@ -67,7 +92,7 @@ class Landing extends Component {
                         {
                             this.props.isAuthenticated ?
                             <div className="inner-welcome-div">
-                                <Link to="/"><button id="landing-button">Track your goals HERE!</button></Link>
+                                <Link to="/dailylog"><button id="landing-button">Track your goals HERE!</button></Link>
                             </div>
                             :
                             <div className="inner-welcome-div">
@@ -85,8 +110,8 @@ class Landing extends Component {
                 <div className="search-div">
                     <h1 id="search-title">Learn more about what you eat, search over 700,000 foods to get nutrient information.</h1>
                     <div className="search-container"> 
-                        <input className="search-bar" placeholder="... try searching your favorite food"></input>
-                        <i className="fa fa-search"></i>
+                        <input className="search-bar" placeholder="... try searching your favorite food" onChange={this.updateInput} onKeyDown={this.keyPress}></input>
+                        <i className="fa fa-search" onClick={this.redirect}></i>
                     </div>
                 </div>
                 <h1 id="tracker-title">You have goals? We have tools to help you</h1>
@@ -125,20 +150,18 @@ class Landing extends Component {
                                 className="victory-buttons"
                                 type="button"
                                 onClick={() => this.prevProperty()} 
-                                
                                 ><h2>{"<<"}</h2></button>
 
-                                <div className="cards-slider-wrapper" >
-                                {
-                                <Card property={property} />
-                                }
-                                </div>
-                            
+                                    <div className="cards-slider-wrapper" >
+                                        {
+                                            <Card property={property} />
+                                        }
+                                    </div>
+                                
                                 <button 
                                 className="victory-buttons"
                                 type="button"
-                                onClick={() => this.nextProperty()} 
-                                
+                                onClick={() => this.nextProperty()}
                                 ><h2>{">>"}</h2></button>
                         </div>
                     
@@ -192,4 +215,4 @@ function mapStateToProps(state){
         
     }
 }
-export default connect(mapStateToProps)(Landing)
+export default connect(mapStateToProps, {searchFoods})(Landing)

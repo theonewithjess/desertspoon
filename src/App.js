@@ -10,8 +10,10 @@ import Landing from './components/Landing'
 import DailyLog from './components/DailyLog'
 import Login from './components/Login'
 import Register from './components/Register'
-import LineChart from './components/LineChart'
-import Chart from './components/Chart'
+import Query from './components/Query'
+import Header from './components/Header'
+// import LineChart from './components/LineChart'
+// import Chart from './components/Chart'
 
 
 class App extends Component {
@@ -44,11 +46,13 @@ class App extends Component {
     :
     <HashRouter>
       <div className="App">
+        <Header/>
         <Switch>
           <Route exact path="/" component={Landing}/>
           <Route path="/login" component={Login}/>
           <Route path="/register" component={Register}/>
-          <Route path="/daily-log" component={DailyLog}/>
+          <Route path="/dailylog" component={DailyLog}/>
+          <Route path='/query' component={Query}/>
         </Switch>
       </div>
 

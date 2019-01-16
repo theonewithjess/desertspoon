@@ -5,6 +5,7 @@
   overflow: hidden;
   display: block;
   position: relative;
+  /* background-image: linear-gradient(rgb(235, 235, 235, .6), white); */
   
 }
 button{
@@ -201,6 +202,7 @@ button{
   color: azure;
   transition: opacity .5s;
   color: azure;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 .login-button:hover{
   opacity: .9;
@@ -219,7 +221,7 @@ button{
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-
+  
 }
 .welcome-div{
   /* border: 1px solid red; */
@@ -281,6 +283,7 @@ button{
   border-radius: 5px;
   color: azure;
   transition: opacity .5s;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 #landing-button:hover{
   /* color: rosybrown; */
@@ -313,6 +316,7 @@ button{
   padding-left: 50px;
   font-size: 25px;
   color: #999;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .search-container{
   /* border: 2px solid red; */
@@ -324,6 +328,140 @@ button{
   /* color: #999; */
   justify-content: space-evenly;
 
+}
+.search-container-dailylog{
+  /* border: 2px solid red; */
+  width: 60%;
+  margin: auto;
+  font-size: 40px;
+  padding: 10px;
+  display: flex;
+  /* color: #999; */
+  justify-content: space-evenly;
+
+}
+.search-bar-dailylog{
+  width: 80%;
+  height: 60px;
+  /* background-color: darkslategrey; */
+  /* border: .5px solid darkslategrey; */
+  
+  border-radius: 30px;
+  /* border-style: unset; */
+  outline: none;
+  margin: auto;
+  padding-left: 50px;
+  font-size: 25px;
+  color: #999;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.meal-div{
+  border: 1px solid red;
+}
+.food-log{
+  border: 1px solid blue;
+}
+.query{
+  margin-top: 100px;
+  /* border: 1px solid green; */
+}
+.query-result{
+  border: 1px solid black;
+  width: 60%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  
+  padding: 10px 50px;
+}
+.query-calories{
+  /* border: 1px solid purple; */
+  width: 20%;
+  display: flex;
+  justify-content: flex-end;
+  
+}
+.carrot{
+  font-size: 35px;
+  
+}
+.food-name{
+  /* border: 1px solid orange; */
+  /* margin: auto; */
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+}
+.search-container-query{
+  /* border: 2px solid red; */
+  width: 60%;
+  margin: auto;
+  font-size: 40px;
+  padding: 10px;
+  display: flex;
+  color: #999;
+  justify-content: space-around;
+
+}
+.search-bar-query{
+  width: 70%;
+  height: 60px;
+  /* background-color: darkslategrey; */
+  /* border: .5px solid darkslategrey; */
+  
+  border-radius: 30px;
+  /* border-style: unset; */
+  outline: none;
+  margin: auto;
+  padding-left: 50px;
+  font-size: 25px;
+  color: #999;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.nutrients{
+  /* border: 1px solid red; */
+  width: 60%;
+  margin: auto;
+  /* height: 300px; */
+
+}
+#nutrient-input{
+  width: 10%;
+  margin: auto;
+  text-align: center;
+}
+#nutrient-input-selector{
+  width: 20%;
+  margin: auto;
+  text-align: center;
+}
+.nutrient-calculator{
+  /* border: 1px solid green; */
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  margin: auto;
+  padding: 5px;
+}
+.add-to-log{
+  border: 1px solid purple;
+}
+.nutrient-details{
+  border: 1px solid pink;
+  display: flex;
+}
+.nutrient-parent{
+  width: 100%;
+}
+.nutrient{
+  border: 1px solid black;
+  margin: auto;
+  /* width: 100%; */
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5px;
 }
 #search-title{
   font-size: 26px;
@@ -360,6 +498,8 @@ button{
   padding: 5px;
   background-color: white;
   border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
   
 }
 .feature-pie{
@@ -416,14 +556,15 @@ button{
 .victory-carousel{
   /* border: 1px solid blue; */
   background-color: rgb(47, 79, 79, .9);
-  height: 500px;
-  width: 60%;
+  height: 600px;
+  width: 70%;
   margin: auto;
   border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .victory-buttons{
   width: 250px;
-  height: 150px;
+  height: 100%;
   margin: auto;
   font-size: 45px;
   font-family: 'Nanum Gothic', sans-serif;;
@@ -431,7 +572,7 @@ button{
   color: white;
   font-weight: bold;
   border: none;
-  border-radius: 10%;
+  border-radius: 5%;
 }
 .victory-buttons:hover{
   background-color: rgb(47, 79, 79, .9);
@@ -454,6 +595,13 @@ button{
   align-content: center;
   font-family: 'Thasadith', sans-serif;
   background-image: linear-gradient(white, rgb(235, 235, 235, .6));
+}
+.daily-log{
+  /* background-image: linear-gradient( rgb(235, 235, 235, .6),white); */
+}
+.daily-log-component{
+  
+  margin-top: 100px;
 }
 .dev-team{
   background-image: url('http://ios-resources.devmountain.com/public/icon.png');
@@ -481,6 +629,7 @@ button{
   width: 30%;
   height: 70vh;
   background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .col{
@@ -492,9 +641,10 @@ button{
   justify-content: space-evenly;
 }
 .carousel-image{
-  height: 350px;
+  height: 80%;
   width: 100%; 
   border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .card {
   
@@ -504,8 +654,8 @@ button{
   cursor: pointer;
   background-color: #f3f3f3;
   padding: 10px;
-  max-width: 520px;
-  
+  max-width: 600px;
+  height: 100%;
   text-align: left;
   margin: 0 auto ; 
 }
@@ -545,15 +695,15 @@ button{
 .cards-slider-wrapper {
   
   /* border: 1px solid red; */
-  height: 500px;
-  width: 100%;
+  height: 600px;
+  width: 80%;
   margin: auto;
   display: flex;
   /* position: absolute; */
   transition: transform 300ms cubic-bezier(0.455, 0.03, 0.515, 0.955); }
   .cards-slider-wrapper .card {
     flex: 1;
-    min-width:350px;
+    min-width:100%;
     opacity: 0.7;
     transform: scale(0.8);
     box-shadow: none;
@@ -599,7 +749,8 @@ button{
 
 
 .cards-slider {
-  height: 500px;
+  height: 600px;
+  width: 100%;
   /* position: relative; */
   /* max-width: 226px; */
   /* border: 1px solid green; */

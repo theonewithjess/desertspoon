@@ -1,82 +1,169 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import axios from 'axios'
+import LogItem from './LogItem'
+import Header from './Header'
+import Query from './Query'
 
-
-
-class DailyLog extends Component {
+export default class DailyLog extends Component {
     constructor(){
         super()
         this.state = {
-            query: '',
-            queryResults: [],
-            details: [], 
-            showDetails: false
+            foodLog: []
         }
     }
-
-    query = () => {
-        console.log(this.state.showDetails)
-
-        const APP_ID = `${process.env.REACT_APP_APP_ID}`
-        const APP_KEY = `${process.env.REACT_APP_APP_KEY}`
-        axios.get(`https://api.edamam.com/api/food-database/parser?ingr=${this.state.query}&app_id=${APP_ID}&app_key=${APP_KEY}`).then(res => {
-            console.log(res)
-            this.setState({queryResults: res.data.hints})
+    componentDidMount(){
+        axios.get('/api/foodlog').then(res => {
+            this.setState({
+                foodLog: res.data
+            })
+        }).catch(err => console.log(err))
+    }
+   
+    getLog = () => {
+        axios.get('/api/foodlog').then(res => {
+            this.setState({
+                foodLog: res.data
+            })
+        }).catch(err => console.log(err))
+    }
+    render() {
+        console.log("food log state", this.state)
+        let breakfast = this.state.foodLog.map((e,i) => {
+            if(this.state.foodLog[i].meal === 'Breakfast'){
+                let {quantity, measure, measureuri, name, fooduri, calories, protein, carbohydrates, fat, entry_id} = this.state.foodLog[i]
+                return (
+                    <LogItem 
+                    quantity={quantity}
+                    measure={measure}
+                    measureuri={measureuri}
+                    name={name}
+                    fooduri={fooduri}
+                    calories={calories}
+                    protein={protein}
+                    carbohydrates={carbohydrates}
+                    fat={fat}
+                    key={i}
+                    entry_id={entry_id}
+                    getLog={this.getLog}
+                    />
+                )
+            } else {
+                return(
+                    <div key={i}></div>
+                )
+            }
         })
-    }
+        let lunch = this.state.foodLog.map((e,i) => {
+            if(this.state.foodLog[i].meal === 'Lunch'){
+                let {quantity, measure, measureuri, name, fooduri, calories, protein, carbohydrates, fat, entry_id} = this.state.foodLog[i]
+                return (
+                    <LogItem 
+                    quantity={quantity}
+                    measure={measure}
+                    measureuri={measureuri}
+                    name={name}
+                    fooduri={fooduri}
+                    calories={calories}
+                    protein={protein}
+                    carbohydrates={carbohydrates}
+                    fat={fat}
+                    key={i}
+                    entry_id={entry_id}
+                    getLog={this.getLog}
+                    />
+                )
+            } else {
+                return(
+                    <div key={i}></div>
+                )
+            }
+        })
+        let dinner = this.state.foodLog.map((e,i) => {
+            if(this.state.foodLog[i].meal === 'Dinner'){
+                let {quantity, measure, measureuri, name, fooduri, calories, protein, carbohydrates, fat, entry_id} = this.state.foodLog[i]
+                return (
+                    <LogItem 
+                    quantity={quantity}
+                    measure={measure}
+                    measureuri={measureuri}
+                    name={name}
+                    fooduri={fooduri}
+                    calories={calories}
+                    protein={protein}
+                    carbohydrates={carbohydrates}
+                    fat={fat}
+                    key={i}
+                    entry_id={entry_id}
+                    getLog={this.getLog}
+                    />
+                )
+            } else {
+                return(
+                    <div key={i}></div>
+                )
+            }
+        })
+        let snacks = this.state.foodLog.map((e,i) => {
+            if(this.state.foodLog[i].meal === 'Snacks'){
+                let {quantity, measure, measureuri, name, fooduri, calories, protein, carbohydrates, fat, entry_id} = this.state.foodLog[i]
+                return (
+                    <LogItem 
+                    quantity={quantity}
+                    measure={measure}
+                    measureuri={measureuri}
+                    name={name}
+                    fooduri={fooduri}
+                    calories={calories}
+                    protein={protein}
+                    carbohydrates={carbohydrates}
+                    fat={fat}
+                    entry_id={entry_id}
+                    key={i}
+                    getLog={this.getLog}
+                    />
+                )
+            } else {
+                return(
+                    <div key={i}></div>
+                )
+            }
+        })
+        return (
+            <div className="daily-log">
+                
+                    
+                <div className="daily-log-component">
 
-    handleInputChange = e => {
-        this.setState({query: e.target.value})
-    }
-
-    // getDetails = () => {
-    //     if (this.state.showDetails){
-    //         axios.post(`https://api.edamam.com/api/food-database/nutrients`).then(res => {
-    //             console.log(res)
-    //             // this.setState({
-    //             //     details: res
-    //             // })
-    //             return(
-    //                 <div>test div</div>
-    //             )
-    //         })
-    //     }
-    // }
-    //TEST
-    toggleDetails = (id) => {
-        console.log(this.state.showDetails)
-        this.setState({showDetails: !this.state.showDetails})
-        // if (this.state.showDetails){
-        //     this.getDetails(id)
-        // }
-        console.log(this.state.showDetails)
-
-    }
-
-    render(){
-        let queryResults = this.state.queryResults.map(e => {
-            let name = e.food.label
-            let calories = e.food.nutrients.ENERC_KCAL
-            let id = e.food.foodId
-            return(
-                <div style={{width:"500px", height:"25px", border:"1px solid grey", display:"flex", justifyContent:"space-between"}}>
-                    {name}
-                    <div>
-                        {calories.toFixed(0)}
-                        <i class="fas fa-caret-down" style={{color:"grey"}} onClick={this.toggleDetails} ></i>
+                    <div className="search-foodlog">
+                        <div className="search-container-dailylog"> 
+                            <Query/>
+                        </div>
+                        <div></div>
                     </div>
+
+                    <div className="food-log">
+                        <h1>Today's Date</h1>
+                        <div className="meal-div">
+                            Breakfast 
+                            {breakfast}
+                        </div>
+                        <div className="meal-div">
+                            Lunch 
+                            {lunch}
+                        </div>
+                        <div className="meal-div">
+                            Dinner 
+                            {dinner}
+                        </div>
+                        <div className="meal-div">
+                            Snacks 
+                            {snacks}
+                        </div>
+
+                    </div>
+
                 </div>
-            )
-        })
-        return(
-            <div>
-                <h1>Daily Log</h1>
-                <input type="text" onChange={this.handleInputChange} />
-                <button onClick={this.query}>Click</button>
-                {queryResults}
             </div>
         )
     }
 }
-
-export default DailyLog
