@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import LogItem from './LogItem'
+import Header from './Header'
+import Query from './Query'
 
 export default class DailyLog extends Component {
     constructor(){
@@ -127,23 +129,39 @@ export default class DailyLog extends Component {
             }
         })
         return (
-            <div>
-                <h1>Today's Date</h1>
-                <div>
-                    Breakfast <i className="fas fa-plus-circle" style={{color:"grey"}}></i>
-                    {breakfast}
-                </div>
-                <div>
-                    Lunch <i className="fas fa-plus-circle" style={{color:"grey"}}></i>
-                    {lunch}
-                </div>
-                <div>
-                    Dinner <i className="fas fa-plus-circle" style={{color:"grey"}}></i>
-                    {dinner}
-                </div>
-                <div>
-                    Snacks <i className="fas fa-plus-circle" style={{color:"grey"}}></i>
-                    {snacks}
+            <div className="daily-log">
+                
+                    
+                <div className="daily-log-component">
+
+                    <div className="search-foodlog">
+                        <div className="search-container-dailylog"> 
+                            <Query/>
+                        </div>
+                        <div></div>
+                    </div>
+
+                    <div className="food-log">
+                        <h1>Today's Date</h1>
+                        <div className="meal-div">
+                            Breakfast 
+                            {breakfast}
+                        </div>
+                        <div className="meal-div">
+                            Lunch 
+                            {lunch}
+                        </div>
+                        <div className="meal-div">
+                            Dinner 
+                            {dinner}
+                        </div>
+                        <div className="meal-div">
+                            Snacks 
+                            {snacks}
+                        </div>
+
+                    </div>
+
                 </div>
             </div>
         )

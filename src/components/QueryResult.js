@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import NutrientDetails from './NutrientDetails'
+import {connect} from 'react-redux'
 
 class QueryResult extends Component {
     constructor(){
@@ -17,11 +18,16 @@ class QueryResult extends Component {
         let {name, calories} = this.props
         return(
             <div>
-                <div style={{width:"500px", height:"25px", border:"1px solid grey", display:"flex", justifyContent:"space-between"}}>
-                    {name}
-                    <div style={{width:"100px", display:"flex", flexDirection:"row", justifyContent:"flex-end", alignItems:"center", alignContent:"flex-end"}}>
-                        <p style={{padding:"5px"}}>{calories ? calories.toFixed(0) : 0} cal</p>
-                        {this.state.showDetails ? <i className="fas fa-caret-up" style={{color:"grey"}} onClick={this.toggleDetails}></i> : <i className="fas fa-caret-down" style={{color:"grey"}} onClick={this.toggleDetails} ></i>}
+                <div className="query-result">
+                    <div className="food-name"><p style={{margin: "auto"}}>{name}</p></div>
+                    <div className="query-calories">
+                        <p style={{margin: "auto"}}>{calories ? calories.toFixed(0) : 0} cal</p>
+                        {
+                            this.props.isAuthenticated ? 
+                            this.state.showDetails ? <i className="fas fa-caret-up carrot" style={{color:"grey"}} onClick={this.toggleDetails}></i> : <i className="fas fa-caret-down carrot" style={{color:"grey"}} onClick={this.toggleDetails} ></i>
+                            :
+                            null
+                        }
                     </div>
                 </div>
                 {this.state.showDetails && <NutrientDetails measures={this.props.measures} foodURI={this.props.foodURI} name={this.props.name}/>}
@@ -30,5 +36,12 @@ class QueryResult extends Component {
     }
 }
 
-export default QueryResult
+function mapStateToProps(state){
+    let {isAuthenticated} = state
+    return {
+        isAuthenticated
+    }
+}
+
+export default connect(mapStateToProps)(QueryResult)
 

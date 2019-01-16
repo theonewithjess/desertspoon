@@ -2,7 +2,7 @@ module.exports = {
     getLog : (req, res) => {
         try {
             const db = req.app.get('db')
-            let user_id = 2
+            let {id: user_id} = req.session.user 
             let date = "2019-01-11"
             db.get_log_by_user({user_id, date}).then(log => res.send(log))
         } catch (error) {
@@ -13,8 +13,7 @@ module.exports = {
     addToLog : (req, res) => {
         try {
             const db = req.app.get('db')
-            let user_id = 2
-            // let {id: user_id} = req.session.user 
+            let {id: user_id} = req.session.user 
             let {date, meal, name, foodURI, measure, measureURI, quantity, calories, fat, carbohydrates, protein} = req.body
 
             db.add_to_log({user_id, date, meal, name, foodURI, measure, measureURI, quantity, calories, fat, carbohydrates, protein}).then(item => {

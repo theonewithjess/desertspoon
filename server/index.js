@@ -5,7 +5,8 @@ const express = require('express'),
     massive = require('massive'),
     session = require('express-session'),
     {CONNECTION_STRING, SERVER_PORT: PORT, SESSION_SECRET, APP_ID, APP_KEY} = process.env,
-    fl = require('./controller/FoodLog')
+    fl = require('./controller/FoodLog'),
+    ac = require('./controllers/Auth')
 
 app.use(bodyParser.json())
 
@@ -24,7 +25,10 @@ massive(CONNECTION_STRING).then(db => {
 
 
 
-//user endpoints
+app.post('/auth/login', ac.login)
+app.post('/auth/register', ac.register)
+app.get('/auth/logout', ac.logout)
+app.get('/auth/currentUser', ac.getCurrentUser)
 
 
 
