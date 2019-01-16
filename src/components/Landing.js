@@ -2,11 +2,51 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import Header from './Header'
 import {connect} from 'react-redux'
+import Card from './Card';
+import data from '../components/data'
 
 
 
 class Landing extends Component {
-  render() {
+    constructor(props){
+        super(props);
+        this.state = {
+            properties: data.properties,
+            property: data.properties[0]
+        }
+    }
+        
+    nextProperty = () => {
+        if(this.state.property.index === this.state.properties.length-1){
+            let newIndex = 0
+            this.setState({
+                property: data.properties[newIndex]
+            })
+        } else {
+            let newIndex = this.state.property.index+1
+            this.setState({
+                property: data.properties[newIndex]
+            })
+        }
+    }
+        
+    prevProperty = () => {
+        if(this.state.property.index === 0){
+            let newIndex = this.state.properties.length-1
+            this.setState({
+                property: data.properties[newIndex]
+            })
+        } else {
+            let newIndex = this.state.property.index-1;
+            this.setState({
+                property: data.properties[newIndex]
+            })
+        }
+    }
+
+
+    render() {
+    const {properties, property} = this.state
     return (
         <div>
             <Header/>
@@ -77,7 +117,35 @@ class Landing extends Component {
             <div className="landing-3">
                 <h1 id="search-title">Victory Wall!</h1>
                 <div className="victory-carousel">
-                   
+
+                    
+                
+                        <div className={`cards-slider active-slide-${property.index}`}>
+                                <button 
+                                className="victory-buttons"
+                                type="button"
+                                onClick={() => this.prevProperty()} 
+                                
+                                ><h2>{"<<"}</h2></button>
+
+                                <div className="cards-slider-wrapper" >
+                                {
+                                <Card property={property} />
+                                }
+                                </div>
+                            
+                                <button 
+                                className="victory-buttons"
+                                type="button"
+                                onClick={() => this.nextProperty()} 
+                                
+                                ><h2>{">>"}</h2></button>
+                        </div>
+                    
+
+
+
+
                 </div>
              
             </div>
