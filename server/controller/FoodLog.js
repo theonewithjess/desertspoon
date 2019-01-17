@@ -25,6 +25,17 @@ module.exports = {
             res.status(500).send(error)
         }
     },
+    getTotals: (req, res)=>{
+        try {
+            const db = req.app.get('db')
+            let {id:user_id}= req.session.user
+            let date="2019-01-11"
+            db.get_totals({user_id, date}).then(totals=>res.send(totals))
+        } catch (error) {
+            console.log('Error fetching totals', error)
+            res.status(500).send(error)
+        }
+    },
     // updateLogItem : (req, res) => {
 
     // },
