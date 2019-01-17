@@ -33,11 +33,11 @@ class Login extends Component {
             password
         })
     }
-    handlePasswordConfirm(confirmPassword){
-        this.setState({
-            confirmPassword
-        })
-    }
+    // handlePasswordConfirm(confirmPassword){
+    //     this.setState({
+    //         confirmPassword
+    //     })
+    // }
     handleKeyPress = (event) => {
         if( event.key==="Enter" ){
             this.handleLogin()
@@ -46,7 +46,7 @@ class Login extends Component {
 
     handleLogin = () => {
         
-            if(this.state.password === this.state.confirmPassword){
+            
                 axios.post('/auth/login', this.state).then(response => {
                     let user = response.data
                     this.props.userLoggedIn(user)
@@ -56,9 +56,7 @@ class Login extends Component {
                     toast.error('The email or password you entered is incorrect')
                 })
 
-            }else{
-                toast.error('password doesnt match')
-            }
+            
 
         
     }
@@ -94,12 +92,12 @@ class Login extends Component {
                         <label>Password</label>
                     </div>
 
-                    <div className="group">
+                    {/* <div className="group">
                         <input onChange={ (e) => this.handlePasswordConfirm( e.target.value ) } onKeyPress={this.handleKeyPress} type="password" required/>
                         <span className="highlight"></span>
                         <span className="bar"></span>
                         <label>Confirm Password</label>
-                    </div>
+                    </div> */}
                     
                 </div>
 

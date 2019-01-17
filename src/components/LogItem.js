@@ -40,13 +40,26 @@ export default class LogItem extends Component {
     render() {
         let {quantity, measure, name, calories, protein, carbohydrates, fat} = this.state
         return (
-            <div>
-                <i className="fas fa-minus-circle" style={{color:"grey"}} onClick={this.deleteLogItem}></i>
-                {quantity} {measure} {name}<br/>
-                calories: {calories}
-                protein: {protein}g
-                carbohydrates: {carbohydrates}g
-                fat: {fat}g
+            <div className="log-food">
+                    <i className="fas fa-minus-circle" style={{color:"grey"}} onClick={this.deleteLogItem}></i>
+                <div className="log-foods">
+                        <div>
+                            <h1 id="log-foods">{quantity} {measure} {name}</h1>
+
+                        </div>
+                        <div className="log-nutrients">
+                            <p>calories: {calories}</p>
+                            <p>protein: {protein}g</p>
+                            <p>carbohydrates: {carbohydrates}g</p>
+                            <p>fat: {fat}g</p>
+                        </div>
+
+                </div>
+                
+
+                
+                
+                
             </div>
         )
     }

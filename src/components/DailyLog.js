@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import {Redirect} from 'react-router-dom'
+import {connect} from 'react-redux'
 import LogItem from './LogItem'
 import Header from './Header'
 import Query from './Query'
 
-export default class DailyLog extends Component {
+class DailyLog extends Component {
     constructor(){
         super()
         this.state = {
@@ -128,7 +130,8 @@ export default class DailyLog extends Component {
                 )
             }
         })
-        return (
+        return !this.props.isAuthenticated ?
+            <Redirect to="/login"/>:
             <div className="daily-log">
                 
                     
@@ -142,28 +145,55 @@ export default class DailyLog extends Component {
                     </div>
 
                     <div className="food-log">
-                        <h1>Today's Date</h1>
+                        <h1 id="search-title">Today's Date</h1>
+                        <hr id="land3-4"></hr>
                         <div className="meal-div">
-                            Breakfast 
-                            {breakfast}
+                            <h1 id="search-title">Breakfast<hr></hr></h1>
+                            
+                            <div className="meal-description">
+                                {breakfast}
+                            </div>
                         </div>
+                        {/* <hr id="land3-4"></hr> */}
                         <div className="meal-div">
-                            Lunch 
-                            {lunch}
+                            <h1 id="search-title">Lunch<hr></hr></h1>
+                            
+                            <div className="meal-description">
+                                {lunch}
+                            </div> 
                         </div>
+                        {/* <hr id="land3-4"></hr> */}
                         <div className="meal-div">
-                            Dinner 
-                            {dinner}
+                            <h1 id="search-title">Dinner<hr></hr></h1> 
+                            
+                            <div className="meal-description">
+                                {dinner}
+                            </div>
                         </div>
+                        {/* <hr id="land3-4"></hr> */}
                         <div className="meal-div">
-                            Snacks 
-                            {snacks}
+                            <h1 id="search-title">Snacks<hr></hr></h1>
+                            
+                            <div className="meal-description">
+                                {snacks}
+                            </div>
                         </div>
 
                     </div>
 
                 </div>
             </div>
-        )
+        
     }
 }
+
+function mapStateToProps(state){
+    let {isAuthenticated} = state
+    return{
+        isAuthenticated
+        
+    }
+}
+
+
+export default connect(mapStateToProps)(DailyLog)

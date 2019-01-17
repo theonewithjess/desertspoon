@@ -159,7 +159,7 @@ class Landing extends Component {
                                     </div>
                                 
                                 <button 
-                                className="victory-buttons"
+                                className="victory-buttons1"
                                 type="button"
                                 onClick={() => this.nextProperty()}
                                 ><h2>{">>"}</h2></button>

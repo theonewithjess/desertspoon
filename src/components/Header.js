@@ -63,7 +63,7 @@ class Header extends Component {
 
                         <div className="log-div">
                             
-                            
+                            <Link to="/dailylog" className="nav-link">Food Log</Link>
                             <Link to="/" className="nav-link" onClick={this.handleLogout}>Logout</Link>
                         </div>
                             :
