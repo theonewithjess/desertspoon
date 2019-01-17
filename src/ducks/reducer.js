@@ -1,12 +1,14 @@
 let initialState = {
    user: [],
    isAuthenticated: false,
-   searchFoods: [] 
+   searchFoods: [],
+   chartNutrients:[]
 }
 
 const USER_LOGGED_IN = 'USER_LOGGED_IN'
 const USER_LOGGED_OUT = 'USERA_LOGGED_OUT'
 const SEARCH_FOODS = 'SEARCH_FOODS'
+
 
 export default function reducer(state = initialState, action){
     switch(action.type) {

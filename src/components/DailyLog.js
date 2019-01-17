@@ -5,6 +5,7 @@ import {connect} from 'react-redux'
 import LogItem from './LogItem'
 import Header from './Header'
 import Query from './Query'
+import Totals from './Totals'
 
 class DailyLog extends Component {
     constructor(){
@@ -140,6 +141,7 @@ class DailyLog extends Component {
                     <div className="search-foodlog">
                         <div className="search-container-dailylog"> 
                             <Query/>
+                            
                         </div>
                         <div></div>
                     </div>
@@ -180,7 +182,7 @@ class DailyLog extends Component {
                         </div>
 
                     </div>
-
+                        <Totals/>
                 </div>
             </div>
         
