@@ -4,28 +4,7 @@ import {Pie, Line, Bar} from 'react-chartjs-2'
 export default class Chart extends Component {
   constructor(props){
     super(props);
-    this.state={
-      chartData:{
-        labels:['Calcium', 'Carbs','Cholesterol','Sugars','Fat','Trans Fat','Fiber'],
-        datasets:[
-          {
-            label:'Nutritional Facts',
-            data:[100,200,300,400,500,600,600,700], //values taken from API will be placed in here and put into the chart via props in the order displayed in labels above.
-            backgroundColor:[
-              'red',
-              'teal',
-              'yellow',
-              'purple',
-              'coral',
-              'blue',
-              'green',
-              'pink'
-              
-            ]
-          }
-        ],
-    }
-    }
+    
   }
   
   
@@ -34,11 +13,29 @@ export default class Chart extends Component {
       displayLegend:true,
       legendPosition:'right'
     }
+
   render() {
+    let { protein, carbohydrates, fat } = this.props
+
+    let chartData = {
+      labels:['Protein', 'Carbohydrates','Fat'],
+      datasets:[
+        {
+          label:'Nutritional Facts',
+          data:[protein, carbohydrates, fat], //values taken from API will be placed in here and put into the chart via props in the order displayed in labels above.
+          backgroundColor:[
+          'red',
+          'teal',
+          'yellow',
+          ]
+        }
+      ],
+    }
+    
     return (
     <div className="chart">
     <Pie
-    data={this.state.chartData}
+    data={chartData}
     width={100}
     height={20}
     options={{

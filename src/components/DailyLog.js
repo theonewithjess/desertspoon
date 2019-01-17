@@ -138,6 +138,7 @@ export default class DailyLog extends Component {
                     <div className="search-foodlog">
                         <div className="search-container-dailylog"> 
                             <Query/>
+                            
                         </div>
                         <div></div>
                     </div>
