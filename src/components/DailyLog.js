@@ -146,43 +146,51 @@ class DailyLog extends Component {
                         <div></div>
                     </div>
 
+
+
                     <div className="food-log">
-                        <h1 id="search-title">Today's Date</h1>
-                        <hr id="land3-4"></hr>
-                        <div className="meal-div">
-                            <h1 id="search-title">Breakfast<hr></hr></h1>
-                            
-                            <div className="meal-description">
-                                {breakfast}
+
+
+                        <div >
+                            <h1 id="search-title">Today's Date</h1>
+                            <hr id="land3-4"></hr>
+                            <div className="meal-div">
+                                <h1 id="search-title">Breakfast<hr></hr></h1>
+                                
+                                <div className="meal-description">
+                                    {breakfast}
+                                </div>
                             </div>
-                        </div>
-                        {/* <hr id="land3-4"></hr> */}
-                        <div className="meal-div">
-                            <h1 id="search-title">Lunch<hr></hr></h1>
-                            
-                            <div className="meal-description">
-                                {lunch}
-                            </div> 
-                        </div>
-                        {/* <hr id="land3-4"></hr> */}
-                        <div className="meal-div">
-                            <h1 id="search-title">Dinner<hr></hr></h1> 
-                            
-                            <div className="meal-description">
-                                {dinner}
+                            {/* <hr id="land3-4"></hr> */}
+                            <div className="meal-div">
+                                <h1 id="search-title">Lunch<hr></hr></h1>
+                                
+                                <div className="meal-description">
+                                    {lunch}
+                                </div> 
                             </div>
-                        </div>
-                        {/* <hr id="land3-4"></hr> */}
-                        <div className="meal-div">
-                            <h1 id="search-title">Snacks<hr></hr></h1>
-                            
-                            <div className="meal-description">
-                                {snacks}
+                            {/* <hr id="land3-4"></hr> */}
+                            <div className="meal-div">
+                                <h1 id="search-title">Dinner<hr></hr></h1> 
+                                
+                                <div className="meal-description">
+                                    {dinner}
+                                </div>
                             </div>
+                            {/* <hr id="land3-4"></hr> */}
+                            <div className="meal-div">
+                                <h1 id="search-title">Snacks<hr></hr></h1>
+                                
+                                <div className="meal-description">
+                                    {snacks}
+                                </div>
+                            </div>
+
                         </div>
+                        <Totals/>
 
                     </div>
-                        <Totals/>
+                        
                 </div>
             </div>
         

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Pie, Line, Bar} from 'react-chartjs-2'
+import {Doughnut, Line, Bar} from 'react-chartjs-2'
 
 export default class Chart extends Component {
   constructor(props){
@@ -34,19 +34,27 @@ export default class Chart extends Component {
     
     return (
     <div className="chart">
-    <Pie
+    <Doughnut
     data={chartData}
     width={100}
     height={20}
     options={{
-      title:{
-        display:this.props.displayTitle,
-        text:'Nutritional Facts',
-        fontSize:25
-      },
       legend:{
         display:this.props.displayLegend,
         position:this.props.legendPosition
+      },
+      tooltips:{
+        callbacks: {
+          label:function(tooltipItem, data){
+            var dataset= data.datasets[tooltipItem.datasetIndex];
+            var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array){
+              return previousValue + currentValue
+            });
+            var currentValue = dataset.data[tooltipItem.index];
+            var percentage = Math.floor(((currentValue/total)* 100)+0.5);
+            return percentage + "%"
+          }
+        }
       }
     }}
     />

@@ -30,9 +30,9 @@ export default class Totals extends Component {
         total Protein: {this.state.totalProtein}
         total Carbohydrates: {this.state.totalCarbohydrates}
         total Fat: {this.state.totalFat}
-        <Chart protein={(this.state.totalProtein*4)}
-        carbohydrates={(this.state.totalCarbohydrates*4)}
-        fat={(this.state.totalFat*9)}/>
+        <Chart protein={(this.state.totalProtein*4)/this.state.totalCalories}
+        carbohydrates={(this.state.totalCarbohydrates*4)/this.state.totalCalories}
+        fat={(this.state.totalFat*9)/this.state.totalCalories}/>
       </div>
     )
   }
