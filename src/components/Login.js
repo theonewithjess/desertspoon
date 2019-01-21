@@ -79,14 +79,14 @@ class Login extends Component {
             <section className="login-container">
                 <div className="user-pass">
                     <div className="group">
-                        <input onChange={ (e) => this.handleUsernameChange( e.target.value ) } onKeyPress={this.handleKeyPress} type="text" required/>
+                        <input className="login-input" onChange={ (e) => this.handleUsernameChange( e.target.value ) } onKeyPress={this.handleKeyPress} type="text" required/>
                         <span className="highlight"></span>
                         <span className="bar"></span>
                         <label>E-mail</label>
                     </div>
 
                     <div className="group">
-                        <input onChange={ (e) => this.handlePasswordChange( e.target.value ) } onKeyPress={this.handleKeyPress} type="password" required/>
+                        <input className="login-input" onChange={ (e) => this.handlePasswordChange( e.target.value ) } onKeyPress={this.handleKeyPress} type="password" required/>
                         <span className="highlight"></span>
                         <span className="bar"></span>
                         <label>Password</label>
