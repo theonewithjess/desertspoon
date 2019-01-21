@@ -40,12 +40,13 @@ export default class Totals extends Component {
   render() {
     return (
       <div className="dailylog-total-div">
+
             <div className="daily-totals">
                 <p id="macros">TOTALS</p>
-                <p id="macros">Calories: {this.state.totalCalories}</p>
-                <p id="macros">Protein: {this.state.totalProtein}g</p>
-                <p id="macros">Carbohydrates: {this.state.totalCarbohydrates}g</p>
-                <p id="macros">Fat: {this.state.totalFat}g</p>
+                <p id="macros">Calories: {this.state.totalCalories ? this.state.totalCalories : 0}</p>
+                <p id="macros">Protein: {this.state.totalProtein ? this.state.totalProtein : 0}g</p>
+                <p id="macros">Carbohydrates: {this.state.totalCarbohydrates ? this.state.totalCarbohydrates : 0}g</p>
+                <p id="macros">Fat: {this.state.totalFat ? this.state.totalFat : 0}g</p>
             </div>
             <div className="daily-macros">
                 <h1 id="search-title">MACROS</h1>

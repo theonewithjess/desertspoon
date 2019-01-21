@@ -3,17 +3,23 @@ import axios from 'axios'
 import {Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
 import LogItem from './LogItem'
-import Header from './Header'
 import Query from './Query'
 import Totals from './Totals'
+import DayPickerInput from 'react-day-picker/DayPickerInput'
+// import 'react-day-picker/lib/style.css'
+import { DateUtils } from 'react-day-picker';
+import dateFnsFormat from 'date-fns/format';
+import dateFnsParse from 'date-fns/parse';
 
 class DailyLog extends Component {
     constructor(){
         super()
         this.state = {
-            foodLog: []
+            foodLog: [],
+            selectedDate: dateFnsFormat(new Date(), 'yyyy-MM-dd')
         }
     }
+    
     componentDidMount(){
         axios.get('/api/foodlog').then(res => {
             this.setState({
@@ -29,8 +35,30 @@ class DailyLog extends Component {
             })
         }).catch(err => console.log(err))
     }
+
+    handleDayChange = (day) => {
+        let formatDay = dateFnsFormat(day, 'yyyy-MM-dd')
+        //axios
+        this.setState({
+            selectedDate: formatDay
+        })
+    }
+    
+    parseDate = (str, format, locale) => {
+        const parsed = dateFnsParse(str, format, {locale});
+        if (DateUtils.isDate(parsed)) {
+          return parsed;
+        }
+        return undefined;
+       }
+    formatDate = (date, format, locale) => {
+    return dateFnsFormat(date, format, {locale});
+    }
     render() {
-        console.log("food log state", this.state)
+       
+        const FORMAT = 'yyyy-MM-dd'
+        console.log('date', this.state.selectedDate)
+        // console.log("food log state", this.state)
         let breakfast = this.state.foodLog.map((e,i) => {
             if(this.state.foodLog[i].meal === 'Breakfast'){
                 let {quantity, measure, measureuri, name, fooduri, calories, protein, carbohydrates, fat, entry_id} = this.state.foodLog[i]
@@ -153,7 +181,13 @@ class DailyLog extends Component {
 
 
                         <div >
-                            <h1 id="search-title">Today's Date</h1>
+                            <div className="date">
+                             
+                                {/* {this.state.selectedDate && <p>Day: {this.state.selectedDate.toLocaleDateString()}</p>}
+                                {!this.state.selectedDate && <p>Choose a day</p>} */}
+                                <DayPickerInput onDayChange={this.handleDayChange}  parseDate={this.parseDate} formatDate={this.formatDate} placeholder={`${dateFnsFormat(new Date(), FORMAT)}`} value={this.state.selectedDate} className="date"/>
+                                
+                            </div>
                             <hr id="land3-4"></hr>
                             <div className="meal-div">
                                 <h1 id="search-title">Breakfast<hr></hr></h1>

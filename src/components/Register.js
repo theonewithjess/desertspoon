@@ -65,7 +65,8 @@ class Register extends Component {
 
     
     render(){
-        return(
+        return this.props.isAuthenticated ?
+            <Redirect to="/"/> :
             <div className="login-component">
                 
                 <Header/>
@@ -73,38 +74,38 @@ class Register extends Component {
                 <section className="register-container">
                     <div className="user-pass-2">
                         <div className="group">
-                            <input value={this.state.firstName} onChange={this.handleChange} onKeyPress={this.handleKeyPress} type="text" name="firstName" required/>
+                            <input className="login-input" value={this.state.firstName} onChange={this.handleChange} onKeyPress={this.handleKeyPress} type="text" name="firstName" required/>
                             <span className="highlight"></span>
                             <span className="bar"></span>
                             <label>Firstname</label>
                         </div> 
                         <div className="group">
-                            <input value={this.state.lastName} onChange={this.handleChange} onKeyPress={this.handleKeyPress} type="text" name="lastName" required/>
+                            <input className="login-input" value={this.state.lastName} onChange={this.handleChange} onKeyPress={this.handleKeyPress} type="text" name="lastName" required/>
                             <span className="highlight"></span>
                             <span className="bar"></span>
                             <label>Lastname</label>
                         </div> 
                         <div className="group">
-                            <input value={this.state.email} onChange={this.handleChange} onKeyPress={this.handleKeyPress} type="email" name="email" required/>
+                            <input className="login-input" value={this.state.email} onChange={this.handleChange} onKeyPress={this.handleKeyPress} type="email" name="email" required/>
                             <span className="highlight"></span>
                             <span className="bar"></span>
                             <label>E-mail</label>
                         </div>
 
                         <div className="group">
-                            <input value={this.state.password} onChange={this.handleChange} onKeyPress={this.handleKeyPress} type="password" name="password" required/>
+                            <input className="login-input" value={this.state.password} onChange={this.handleChange} onKeyPress={this.handleKeyPress} type="password" name="password" required/>
                             <span className="highlight"></span>
                             <span className="bar"></span>
                             <label>Password</label>
                         </div>
                         <div className="group">
-                            <input value={this.state.confirmPassword} onChange={this.handleChange} onKeyPress={this.handleKeyPress} type="password" name="confirmPassword" required/>
+                            <input className="login-input" value={this.state.confirmPassword} onChange={this.handleChange} onKeyPress={this.handleKeyPress} type="password" name="confirmPassword" required/>
                             <span className="highlight"></span>
                             <span className="bar"></span>
                             <label>Confirm password</label>
                         </div>
                         <div className="group">
-                            <input value={this.state.calorieGoal} onChange={this.handleChange} onKeyPress={this.handleKeyPress}  type="text" name="calorieGoal" required/>
+                            <input className="login-input" value={this.state.calorieGoal} onChange={this.handleChange} onKeyPress={this.handleKeyPress}  type="text" name="calorieGoal" required/>
                             <span className="highlight"></span>
                             <span className="bar"></span>
                             <label>Daily calorie goal</label>
@@ -134,7 +135,7 @@ class Register extends Component {
             
             </div>
 
-        )
+        
             
 
 
