@@ -168,14 +168,36 @@ button{
 
   
 }
+.user-pass{
+  /* border: 1px solid black; */
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+}
 .login-container{
   /* border: 1px solid darkslategray; */
   opacity: .95;
   padding: 15px 25px;
   display: flex;
   flex-direction: column;
-  justify-items: center;
-  /* height: 60vh; */
+  justify-content: space-evenly;
+  height: 50vh;
+  width: 25%;
+  align-items: center;
+  background-image: linear-gradient(rgb(235, 235, 235, .6), white);
+  border-radius: 0px 5px;
+  margin: auto;
+
+}
+.register-container{
+  /* border: 1px solid darkslategray; */
+  opacity: .95;
+  padding: 15px 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 80vh;
   width: 25%;
   align-items: center;
   background-image: linear-gradient(rgb(235, 235, 235, .6), white);
@@ -282,12 +304,16 @@ button{
   font-size: 20px;
   border-radius: 5px;
   color: azure;
-  transition: opacity .5s;
+  transition: opacity .2s;
+  transition: background-color .5s;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 #landing-button:hover{
   /* color: rosybrown; */
   opacity: .80;
+}
+#landing-button:active{
+  background-color: white;
 }
 
 .landing-2{
@@ -331,8 +357,8 @@ button{
 }
 .search-container-dailylog{
   /* border: 2px solid red; */
-  width: 60%;
-  margin: auto;
+  width: 100%;
+  /* margin: auto; */
   font-size: 40px;
   padding: 10px;
   display: flex;
@@ -341,7 +367,7 @@ button{
 
 }
 .search-bar-dailylog{
-  width: 80%;
+  width: 90%;
   height: 60px;
   /* background-color: darkslategrey; */
   /* border: .5px solid darkslategrey; */
@@ -356,23 +382,32 @@ button{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .meal-div{
-  border: 1px solid red;
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
 }
-.food-log{
-  border: 1px solid blue;
+.meal-description{
+  /* border: 1px solid orange; */
+  width: 70%;
 }
+
 .query{
   margin-top: 100px;
+  width: 100%;
   /* border: 1px solid green; */
 }
 .query-result{
-  border: 1px solid black;
-  width: 60%;
+  border: .5px solid grey;
+  width: 70%;
   margin: auto;
   display: flex;
   justify-content: space-between;
-  
+  font-family: 'Thasadith', sans-serif;
+  font-size: 18px; 
   padding: 10px 50px;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 3px 0 rgba(0, 0, 0, 0.19);
 }
 .query-calories{
   /* border: 1px solid purple; */
@@ -384,6 +419,23 @@ button{
 .carrot{
   font-size: 35px;
   
+}
+.add-to-log{
+
+}
+.select-meal{
+  font-size: 15px;
+  font-family: 'Thasadith', sans-serif;
+  height: 30px;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 3px 0 rgba(0, 0, 0, 0.19);
+}
+.select-meal:hover{
+  background-color: white;
+}
+.select-meal:focus{
+  outline: none;
 }
 .food-name{
   /* border: 1px solid orange; */
@@ -416,39 +468,80 @@ button{
   padding-left: 50px;
   font-size: 25px;
   color: #999;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
 .nutrients{
-  /* border: 1px solid red; */
+  /* border: 1px solid black; */
   width: 60%;
   margin: auto;
   /* height: 300px; */
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 }
 #nutrient-input{
-  width: 10%;
-  margin: auto;
-  text-align: center;
-}
-#nutrient-input-selector{
   width: 20%;
   margin: auto;
   text-align: center;
+  /* font-size: 10px; */
+}
+#nutrient-input-selector{
+  width: 40%;
+  margin: auto;
+  text-align: center;
+  
+  
+}
+.fa-calculator{
+  font-size: 25px;
+  margin: auto;
+  padding: 10px;
+  color: grey;
+  
+}
+.fa-calculator:hover{
+  color: darkslategrey;
+}
+.fa-plus-circle{
+  font-size: 25px;
+  margin: auto;
+  padding: 10px;
+  color: grey;
+}
+.fa-plus-circle:hover{
+  color: darkslategrey;
+}
+.fa-minus-circle{
+  font-size: 25px;
+  margin: auto;
+  padding: 10px;
+  color: grey;
+}
+.fa-minus-circle:hover{
+  color: darkslategrey;
 }
 .nutrient-calculator{
-  /* border: 1px solid green; */
+  border: 1px solid green;
   display: flex;
-  justify-content: space-between;
   width: 50%;
   margin: auto;
   padding: 5px;
 }
+
 .add-to-log{
-  border: 1px solid purple;
+  /* border: 1px solid purple; */
+  padding: 5px;
+  font-size: 20px;
+  
 }
 .nutrient-details{
   border: 1px solid pink;
   display: flex;
+
+  padding: 10px;
 }
 .nutrient-parent{
   width: 100%;
@@ -457,17 +550,95 @@ button{
   border: 1px solid black;
   margin: auto;
   /* width: 100%; */
-  width: 30%;
+  width: 60%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding: 5px;
+  font-size: 20px;
+ 
 }
+.log-nutrients{
+  font-size: 14px;
+  /* font-weight: bold; */
+  padding-top: 25px;
+  font-family: 'Thasadith', sans-serif;
+}
+.fa-minus-circle{
+  margin: auto;
+  font-size: 25px;
+}
+.log-foods{
+  /* border: 1px solid blue; */
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 90%;
+}
+.log-food{
+  /* border: 1px solid blue; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 10px;
+  width: 100%;
+  height: 170px;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1.5px 5px 0 rgba(0, 0, 0, 0.19);
+
+
+}
+.dailylog-total-div{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  /* border: 1px solid red; */
+}
+.daily-totals{
+  /* border: 1px solid green; */
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Thasadith', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1.5px 5px 0 rgba(0, 0, 0, 0.19);
+  
+}
+#macros{
+  margin: auto;
+}
+.daily-macros{
+  /* border: 1px solid blue; */
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+}
+/* .chart{
+  height: 300px;
+} */
 #search-title{
   font-size: 26px;
   padding-top: 25px;
   font-family: 'Thasadith', sans-serif;
   /* font-weight: bold; */
+}
+#search-title1{
+  font-size: 22px;
+  padding-top: 25px;
+  font-family: 'Thasadith', sans-serif;
+  /* font-weight: bold; */
+}
+
+#log-foods{
+  font-size: 18px;
+  font-weight: bold;
+  padding-top: 25px;
+  font-family: 'Thasadith', sans-serif;
 }
 #tracker-title{
   font-size: 26px;
@@ -557,7 +728,7 @@ button{
   /* border: 1px solid blue; */
   background-color: rgb(47, 79, 79, .9);
   height: 600px;
-  width: 70%;
+  width: 80%;
   margin: auto;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -572,13 +743,32 @@ button{
   color: white;
   font-weight: bold;
   border: none;
-  border-radius: 5%;
+  border-radius: 10px 0px 0px 10px;
 }
 .victory-buttons:hover{
   background-color: rgb(47, 79, 79, .9);
   transition: background-color .5s;
 }
 .victory-buttons:active{
+  background-color: white;
+}
+.victory-buttons1{
+  width: 250px;
+  height: 100%;
+  margin: auto;
+  font-size: 45px;
+  font-family: 'Nanum Gothic', sans-serif;;
+  background-color: transparent;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 0px 10px 10px 0px;
+}
+.victory-buttons1:hover{
+  background-color: rgb(47, 79, 79, .9);
+  transition: background-color .5s;
+}
+.victory-buttons1:active{
   background-color: white;
 }
 #land3-4{
@@ -597,12 +787,27 @@ button{
   background-image: linear-gradient(white, rgb(235, 235, 235, .6));
 }
 .daily-log{
-  /* background-image: linear-gradient( rgb(235, 235, 235, .6),white); */
+  width: 100%;
 }
 .daily-log-component{
-  
-  margin-top: 100px;
+  width: 100%;
+  margin-top: 70px;
+  /* border: 1px solid red; */
+  display: flex;
+  /* padding: 10px; */
+
 }
+.search-foodlog{
+  width: 58%;
+  margin-top: -100px;
+}
+.food-log{
+  /* border: 1px solid blue; */
+  width: 50%;
+  padding: 10px;
+  /* height: 200px; */
+}
+
 .dev-team{
   background-image: url('http://ios-resources.devmountain.com/public/icon.png');
   background-size: cover;

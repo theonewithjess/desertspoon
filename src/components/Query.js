@@ -43,6 +43,7 @@ class Query extends Component {
                     key={e.food.foodId}
                     measures={e.measures}
                     foodURI={e.food.uri}
+                    getLog={this.props.getLog}
                     />
             )
         })
@@ -54,6 +55,7 @@ class Query extends Component {
                     key={e.food.foodId}
                     measures={e.measures}
                     foodURI={e.food.uri}
+                    getLog={this.props.getLog}
                     />
             )
         })

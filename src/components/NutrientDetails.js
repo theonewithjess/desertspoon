@@ -86,7 +86,7 @@ export default class NutrientDetails extends Component {
             carbohydrates,
             protein
         }).then(res => {
-            alert('added to log')
+            this.props.getLog()
         })
     }
 
@@ -108,23 +108,24 @@ export default class NutrientDetails extends Component {
       <div className="nutrients">
           <div className="nutrient-calculator">
             <input id="nutrient-input" type="number" defaultValue={parseFloat(this.state.quantity).toFixed(2)} onChange={this.updateQuantity}/>
-            <select id="nutrient-input-selector" onChange={this.updateMeasure} value={this.state.measure + '|' + this.state.measureURI}>{measures}</select>
-            <i id="nutrient-input" className="fas fa-calculator" onClick={this.calculate} style={{color:"grey"}}></i>
+            <select className="select-meal" id="nutrient-input-selector" onChange={this.updateMeasure} value={this.state.measure + '|' + this.state.measureURI}>{measures}</select>
+            <i  className="fas fa-calculator" onClick={this.calculate}></i>
           </div>
-          <div className="add-to-log">
-            {
-                this.state.calculated && 
-                    <div>
-                        add to <select onChange={this.updateMeal} value={this.state.selectedMeal}>{meals}</select>
-                        <i className="fas fa-plus-circle" onClick={this.addToLog} style={{color:"grey"}}></i>
-                    </div>
-            }
-          </div>
+          
           <div className="nutrient-details">
             {this.state.displayNutrientDetails && 
             <div className="nutrient-parent">
-                <div><h1 style={{fontSize: "20px"}}>Calories {this.state.calories.toFixed(0)}</h1></div>
-                <hr></hr>
+                <div><h1 id="search-title">Calories {this.state.calories.toFixed(0)}</h1></div>
+                <hr id="land3-4"></hr>
+            
+                {
+                    this.state.calculated && 
+                        <div className="add-to-log">
+                            Add to: <select className="select-meal"onChange={this.updateMeal} value={this.state.selectedMeal}>{meals}</select>
+                            <i id="nutrient-calc" className="fas fa-plus-circle" onClick={this.addToLog}></i>
+                        </div>
+                }
+          
                 <div className="nutrient">
                     <div>Total Fat</div>
                     {n.FAT ? <div>{n.FAT.quantity.toFixed(0)}{n.FAT.unit}</div>

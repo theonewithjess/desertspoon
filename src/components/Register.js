@@ -70,8 +70,8 @@ class Register extends Component {
                 
                 <Header/>
 
-                <section className="login-container">
-                    <div className="user-pass">
+                <section className="register-container">
+                    <div className="user-pass-2">
                         <div className="group">
                             <input value={this.state.firstName} onChange={this.handleChange} onKeyPress={this.handleKeyPress} type="text" name="firstName" required/>
                             <span className="highlight"></span>
