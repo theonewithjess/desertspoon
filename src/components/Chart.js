@@ -22,11 +22,11 @@ export default class Chart extends Component {
       datasets:[
         {
           label:'Nutritional Facts',
-          data:[protein, carbohydrates, fat], //values taken from API will be placed in here and put into the chart via props in the order displayed in labels above.
+          data:[protein, carbohydrates, fat], 
           backgroundColor:[
           'red',
           'teal',
-          'yellow',
+          'orange',
           ]
         }
       ],
@@ -37,11 +37,12 @@ export default class Chart extends Component {
     <Doughnut
     data={chartData}
     width={100}
-    height={20}
+    height={40}
     options={{
       legend:{
         display:this.props.displayLegend,
-        position:this.props.legendPosition
+        position:this.props.legendPosition,
+        onClick: (e) => e.stopPropagation()
       },
       tooltips:{
         callbacks: {

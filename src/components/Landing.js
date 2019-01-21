@@ -172,6 +172,9 @@ class Landing extends Component {
                 </div>
              
             </div>
+            <br></br>
+            <br></br>
+            <br></br>
             <hr id="land3-4"></hr>
                 <h1 id="search-title">Meet the team behind the scenes</h1>
             <div className="landing-4">

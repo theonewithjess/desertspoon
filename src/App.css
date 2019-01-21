@@ -367,7 +367,7 @@ button{
 
 }
 .search-bar-dailylog{
-  width: 80%;
+  width: 90%;
   height: 60px;
   /* background-color: darkslategrey; */
   /* border: .5px solid darkslategrey; */
@@ -399,7 +399,7 @@ button{
 }
 .query-result{
   border: .5px solid grey;
-  width: 60%;
+  width: 70%;
   margin: auto;
   display: flex;
   justify-content: space-between;
@@ -495,10 +495,33 @@ button{
   
   
 }
-#nutrient-calc{
+.fa-calculator{
   font-size: 25px;
   margin: auto;
   padding: 10px;
+  color: grey;
+  
+}
+.fa-calculator:hover{
+  color: darkslategrey;
+}
+.fa-plus-circle{
+  font-size: 25px;
+  margin: auto;
+  padding: 10px;
+  color: grey;
+}
+.fa-plus-circle:hover{
+  color: darkslategrey;
+}
+.fa-minus-circle{
+  font-size: 25px;
+  margin: auto;
+  padding: 10px;
+  color: grey;
+}
+.fa-minus-circle:hover{
+  color: darkslategrey;
 }
 .nutrient-calculator{
   border: 1px solid green;
@@ -559,10 +582,45 @@ button{
   justify-content: space-evenly;
   padding: 10px;
   width: 100%;
+  height: 170px;
+  border-radius: 2px;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1.5px 5px 0 rgba(0, 0, 0, 0.19);
 
 
 }
+.dailylog-total-div{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  /* border: 1px solid red; */
+}
+.daily-totals{
+  /* border: 1px solid green; */
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Thasadith', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1.5px 5px 0 rgba(0, 0, 0, 0.19);
+  
+}
+#macros{
+  margin: auto;
+}
+.daily-macros{
+  /* border: 1px solid blue; */
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+}
+/* .chart{
+  height: 300px;
+} */
 #search-title{
   font-size: 26px;
   padding-top: 25px;
@@ -745,8 +803,9 @@ button{
 }
 .food-log{
   /* border: 1px solid blue; */
-  width: 42%;
-  padding-right: 100px;
+  width: 50%;
+  padding: 10px;
+  /* height: 200px; */
 }
 
 .dev-team{

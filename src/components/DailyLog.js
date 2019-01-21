@@ -21,7 +21,7 @@ class DailyLog extends Component {
             })
         }).catch(err => console.log(err))
     }
-   
+    
     getLog = () => {
         axios.get('/api/foodlog').then(res => {
             this.setState({
@@ -140,13 +140,14 @@ class DailyLog extends Component {
 
                     <div className="search-foodlog">
                         <div className="search-container-dailylog"> 
-                            <Query/>
+                            <Query getLog={this.getLog}/>
+
                             
                         </div>
                         <div></div>
                     </div>
 
-
+                    <hr></hr>
 
                     <div className="food-log">
 
@@ -187,7 +188,7 @@ class DailyLog extends Component {
                             </div>
 
                         </div>
-                        <Totals/>
+                        <Totals foodLog={this.state.foodLog}/>
 
                     </div>
                         

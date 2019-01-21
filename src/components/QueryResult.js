@@ -30,7 +30,7 @@ class QueryResult extends Component {
                         }
                     </div>
                 </div>
-                {this.state.showDetails && <NutrientDetails measures={this.props.measures} foodURI={this.props.foodURI} name={this.props.name}/>}
+                {this.state.showDetails && <NutrientDetails measures={this.props.measures} foodURI={this.props.foodURI} name={this.props.name} getLog={this.props.getLog}/>}
             </div>
         )
     }

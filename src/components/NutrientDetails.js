@@ -86,7 +86,7 @@ export default class NutrientDetails extends Component {
             carbohydrates,
             protein
         }).then(res => {
-            alert('added to log')
+            this.props.getLog()
         })
     }
 
@@ -109,7 +109,7 @@ export default class NutrientDetails extends Component {
           <div className="nutrient-calculator">
             <input id="nutrient-input" type="number" defaultValue={parseFloat(this.state.quantity).toFixed(2)} onChange={this.updateQuantity}/>
             <select className="select-meal" id="nutrient-input-selector" onChange={this.updateMeasure} value={this.state.measure + '|' + this.state.measureURI}>{measures}</select>
-            <i id="nutrient-calc" className="fas fa-calculator" onClick={this.calculate} style={{color:"grey"}}></i>
+            <i  className="fas fa-calculator" onClick={this.calculate}></i>
           </div>
           
           <div className="nutrient-details">
@@ -122,7 +122,7 @@ export default class NutrientDetails extends Component {
                     this.state.calculated && 
                         <div className="add-to-log">
                             Add to: <select className="select-meal"onChange={this.updateMeal} value={this.state.selectedMeal}>{meals}</select>
-                            <i id="nutrient-calc" className="fas fa-plus-circle" onClick={this.addToLog} style={{color:"grey"}}></i>
+                            <i id="nutrient-calc" className="fas fa-plus-circle" onClick={this.addToLog}></i>
                         </div>
                 }
           
