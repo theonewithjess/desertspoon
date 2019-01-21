@@ -3,8 +3,9 @@ module.exports = {
         try {
             const db = req.app.get('db')
             let {id: user_id} = req.session.user 
-            let date = "2019-01-11"
-            db.get_log_by_user({user_id, date}).then(log => res.send(log))
+            let {date} = req.body
+            db.get_log_by_user({user_id, date}).then(log => {res.send(log); console.log(log)})
+
         } catch (error) {
             console.log('Error fetching food log:', error)
             res.status(500).send(error)
@@ -29,7 +30,7 @@ module.exports = {
         try {
             const db = req.app.get('db')
             let {id:user_id}= req.session.user
-            let date="2019-01-11"
+            let {date}=req.body
             db.get_totals({user_id, date}).then(totals=>res.send(totals))
         } catch (error) {
             console.log('Error fetching totals', error)
