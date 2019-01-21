@@ -4,7 +4,7 @@ module.exports = {
             const db = req.app.get('db')
             let {id: user_id} = req.session.user 
             let {date} = req.body
-            db.get_log_by_user({user_id, date}).then(log => {res.send(log); console.log(log)})
+            db.get_log_by_user({user_id, date}).then(log => res.send(log))
 
         } catch (error) {
             console.log('Error fetching food log:', error)
