@@ -12,7 +12,10 @@ const Card = ({property}) => {
                     <div className="name">
                         {city}<br />
                     </div>
-                    {address}   
+                    <p id="feature-p1">
+                        {address}   
+
+                    </p>
 
              
             </div>
