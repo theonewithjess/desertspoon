@@ -44,6 +44,7 @@ class Query extends Component {
                     measures={e.measures}
                     foodURI={e.food.uri}
                     getLog={this.props.getLog}
+                    selectedDate={this.props.selectedDate}
                     />
             )
         })
@@ -56,6 +57,7 @@ class Query extends Component {
                     measures={e.measures}
                     foodURI={e.food.uri}
                     getLog={this.props.getLog}
+                    selectedDate = {this.props.selectedDate}
                     />
             )
         })

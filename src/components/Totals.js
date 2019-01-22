@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import Axios from 'axios';
 import Chart from '../components/Chart'
+import {connect} from 'react-redux'
 
-export default class Totals extends Component {
+class Totals extends Component {
     constructor(){
         super()
         this.state={
@@ -13,7 +14,8 @@ export default class Totals extends Component {
         }
     }
     componentDidMount(){
-        Axios.get('/api/totals').then(res=>{
+        let date = this.props.selectedDate
+        Axios.post('/api/totals', {date}).then(res=>{
             this.setState({
                 totalCalories:res.data[0].totalcalories,
                 totalProtein:res.data[0].totalprotein,
@@ -24,8 +26,9 @@ export default class Totals extends Component {
         })
     }
     componentDidUpdate(prevProps){
+        let date = this.props.selectedDate
         if(prevProps.foodLog !== this.props.foodLog){
-            Axios.get('/api/totals').then(res=>{
+            Axios.post('/api/totals', {date}).then(res=>{
                 this.setState({
                     totalCalories:res.data[0].totalcalories,
                     totalProtein:res.data[0].totalprotein,
@@ -40,7 +43,10 @@ export default class Totals extends Component {
   render() {
     return (
       <div className="dailylog-total-div">
-
+            <div>
+                Daily Calorie Goal:
+                {this.props.user.calorie_goal}
+            </div>
             <div className="daily-totals">
                 <p id="macros">TOTALS</p>
                 <p id="macros">Calories: {this.state.totalCalories ? this.state.totalCalories : 0}</p>
@@ -61,3 +67,12 @@ export default class Totals extends Component {
     )
   }
 }
+function mapStateToProps(state){
+    let { user} = state
+    return{
+        
+        user
+        
+    }
+}
+export default connect(mapStateToProps)(Totals)

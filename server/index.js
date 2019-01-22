@@ -33,9 +33,9 @@ app.get('/auth/currentUser', ac.getCurrentUser)
 
 
 //food log endpoints
-app.get('/api/foodlog', fl.getLog)
-app.get('/api/totals', fl.getTotals)
+app.post('/api/totals', fl.getTotals)
 app.post('/api/foodlog', fl.addToLog)
+app.post('/api/foodlog/date', fl.getLog)
 // app.put('/api/foodlog/:id', fl.updateLogItem)
 app.delete('/api/foodlog/:id', fl.deleteLogItem)
 

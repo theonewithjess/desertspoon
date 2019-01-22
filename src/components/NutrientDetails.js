@@ -14,7 +14,7 @@ export default class NutrientDetails extends Component {
             quantity: 1.00,
             displayNutrientDetails: false,
             selectedMeal: "",
-            selectedDate: "2019-01-11",
+            selectedDate: '',
             meals: ["Breakfast", "Lunch", "Dinner", "Snacks"],
             calculated: false
         }
@@ -25,7 +25,8 @@ export default class NutrientDetails extends Component {
         this.setState({
             measure: this.props.measures[0].label,
             measureURI: this.props.measures[0].uri,
-            selectedMeal: this.state.meals[0]
+            selectedMeal: this.state.meals[0],
+            selectedDate: this.props.selectedDate
         })
     }
 

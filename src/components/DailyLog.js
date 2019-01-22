@@ -21,15 +21,30 @@ class DailyLog extends Component {
     }
     
     componentDidMount(){
-        axios.get('/api/foodlog').then(res => {
+        let date= this.state.selectedDate
+        axios.post('/api/foodlog/date', {date}).then(res => {
             this.setState({
                 foodLog: res.data
             })
         }).catch(err => console.log(err))
     }
+
+    componentDidUpdate(prevProps, prevState){
+        let date = this.state.selectedDate
+        if(prevState.selectedDate !== this.state.selectedDate){
+            axios.post('/api/foodlog/date', {date}).then(res=>{
+                this.setState({
+                    foodLog: res.data
+                })
+               
+            }).catch(err => console.log(err))
+
+        }
+    }
     
     getLog = () => {
-        axios.get('/api/foodlog').then(res => {
+        let date = this.state.selectedDate
+        axios.post('/api/foodlog/date', {date}).then(res => {
             this.setState({
                 foodLog: res.data
             })
@@ -38,7 +53,6 @@ class DailyLog extends Component {
 
     handleDayChange = (day) => {
         let formatDay = dateFnsFormat(day, 'yyyy-MM-dd')
-        //axios
         this.setState({
             selectedDate: formatDay
         })
@@ -168,7 +182,7 @@ class DailyLog extends Component {
 
                     <div className="search-foodlog">
                         <div className="search-container-dailylog"> 
-                            <Query getLog={this.getLog}/>
+                            <Query getLog={this.getLog} selectedDate={this.state.selectedDate}/>
 
                             
                         </div>
@@ -222,7 +236,7 @@ class DailyLog extends Component {
                             </div>
 
                         </div>
-                        <Totals foodLog={this.state.foodLog}/>
+                        <Totals foodLog={this.state.foodLog} selectedDate={this.state.selectedDate}/>
 
                     </div>
                         
