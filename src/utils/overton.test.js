@@ -1,4 +1,6 @@
 import reducer, {types} from '../ducks/reducer'
+import  {nextPropertyTest, prevPropertyTest} from './next-prev'
+
 
 describe('types', () => {
 
@@ -13,6 +15,9 @@ describe('types', () => {
         }
         expect(reducer({}, action)).toEqual(expectedState)
       }) 
+      it('Check if property is true',()=>{
+          expect(nextPropertyTest(7,8)).toEqual(true)
+      })
   })
   
   

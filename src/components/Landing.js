@@ -5,7 +5,7 @@ import {searchFoods} from '../ducks/reducer'
 import Card from './Card';
 import data from '../components/data'
 import axios from 'axios'
-
+import nextPrev from '../utils/next-prev.js'
 
 const APP_ID = `${process.env.REACT_APP_APP_ID}`
 const APP_KEY = `${process.env.REACT_APP_APP_KEY}`
@@ -21,7 +21,7 @@ class Landing extends Component {
     }
         
     nextProperty = () => {
-        if(this.state.property.index === this.state.properties.length-1){
+        if(nextPrev.nextPropertyTest(this.state.property.index,  this.state.properties.length-1)){
             let newIndex = 0
             this.setState({
                 property: data.properties[newIndex]
