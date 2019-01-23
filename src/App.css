@@ -337,6 +337,7 @@ button{
   /* background-color: darkslategrey; */
   border-radius: 30px;
   border-style: unset;
+  text-align: left;
   outline: none;
   margin: auto;
   padding-left: 50px;
@@ -371,7 +372,7 @@ button{
   height: 60px;
   /* background-color: darkslategrey; */
   /* border: .5px solid darkslategrey; */
-  
+  text-align: left;
   border-radius: 30px;
   /* border-style: unset; */
   outline: none;
@@ -460,7 +461,7 @@ button{
   height: 60px;
   /* background-color: darkslategrey; */
   /* border: .5px solid darkslategrey; */
-  
+  text-align: left;
   border-radius: 30px;
   /* border-style: unset; */
   outline: none;
@@ -678,7 +679,7 @@ button{
 .feature-pie{
   /* border: 1px solid blue; */
   height: 35vh;
-  background-image: url('./PieChart\ 2019-01-11\ at\ 3.37.01\ PM.png') ;
+  background-image: url('./Screen\ Shot\ 2019-01-22\ at\ 9.38.01\ AM.png') ;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat; 
@@ -690,7 +691,7 @@ button{
 .feature-graph{
   /* border: 1px solid blue; */
   height: 35vh;
-  background-image: url('./BarGraph\ 2019-01-11\ at\ 3.37.29\ PM.png') ;
+  background-image: url('./Screen\ Shot\ 2019-01-22\ at\ 9.38.12\ AM.png') ;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat; 
@@ -702,7 +703,7 @@ button{
 .feature-search{
   /* border: 1px solid blue; */
   height: 35vh;
-  background-image: url('./Screen\ Shot\ 2019-01-11\ at\ 3.38.28\ PM.png');
+  background-image: url('./Screen\ Shot\ 2019-01-22\ at\ 9.38.37\ AM.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover; 
@@ -991,6 +992,7 @@ button{
   display:block;
   width:300px;
   height: 20px;
+  text-align: left;
   border:none;
   border-bottom:1px solid darkslategrey;
   border-radius: 2px;
@@ -1291,7 +1293,7 @@ input{
     text-decoration: none;
     opacity: .90;
     color: white;
-    font-family: cursive;
+   
     letter-spacing: 2px;
     /* font-weight: bold; */
     font-size: 18px;
@@ -1312,6 +1314,22 @@ input{
     position: relative;
     /* border: 1px solid blue; */
   }
+  .links{
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .nav-link:hover:before,
+  .nav-link:focus:before {
+  visibility: hidden;
+  /* transform: scaleX(1.2); */
+  }
+  .company-name:hover:before,
+  .company-name:focus:before {
+  visibility: hidden;
+  /* transform: scaleX(1.2); */
+  }
   .welcome-div{
     /* border: 1px solid red; */
     font-family: 'Thasadith', sans-serif;
@@ -1321,11 +1339,17 @@ input{
     flex-direction: column;
     justify-content: space-evenly;
     margin: auto;
+  } 
+  .welcome{
+    height: 100vh;
   }
   .inner-welcome-div{
     /* border: 1px solid blue; */
     
     width: 100%;
+  }
+  .outer-welcome-div{
+    height: 60vh;
   }
   #landing-p{
     width: 100%;
@@ -1334,5 +1358,136 @@ input{
   }
   .landing-1{
    
+  }
+  .search-container{
+    width: 100%;
+  }
+  .search-bar{
+    width: 90%;
+    font-size: 16px;
+  }
+  .features{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    height: 65vh;
+    justify-content: space-between;
+    
+  }
+  .feature-container{
+    width: 100%;
+    margin: 5px;
+  }
+  #feature-p{
+    padding: 10px;
+    overflow-wrap: break-word;
+    font-family: 'Thasadith', sans-serif; 
+    font-size: 1rem;
+  }
+  #feature-p1{
+    /* padding: 10px; */
+    overflow-wrap: break-word;
+    font-family: 'Thasadith', sans-serif; 
+    font-size: 1rem;
+  }
+
+  .victory-carousel{
+    width: 90%;
+    /* height: 50%; */
+  }
+  .victory-buttons{
+    width: 70px;
+    
+  }
+  .victory-buttons1{
+    width: 70px;
+  }
+  .carousel-image{
+    height: 40%;
+    
+  }
+  .card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .landing-4{
+    flex-direction: column;
+    height: 150vh;
+    padding: 10px;
+  }
+  .dev-container{
+    width: 90%;
+    padding: 10px;
+    margin: 20px;
+  }
+  .dev-team{
+    height: 150px;
+    width: 150px;
+  }
+  .search-container-query{
+    width: 100%;
+  }
+  .login-container{
+    width: 90%;
+  }
+  .register-container{
+    width: 90%;
+  }
+  .daily-log-component{
+    width: 100%;
+    margin-top: 70px;
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    /* padding: 10px; */
+  
+  }
+  .search-foodlog{
+    width: 100%;
+  }
+  .food-log{
+    width: 100%;
+  }
+  .query-result{
+    width: 95%;
+  }
+  .nutrients{
+    width: 100%;
+  }
+  .nutrient-calculator{
+    width: 100%;
+  }
+  .nutrient{
+    width: 100%;
+  }
+  #log-foods{
+    font-size: 14px;
+  }
+  .log-nutrients{
+    font-size: 10px;
+  }
+  #macros{
+    font-size: 12px; 
+
+    
+  }
+  .daily-macros{
+    justify-content: space-evenly;
+  }
+  .meal-description{
+    height: 20vh;
+  }
+  .log-food{
+    /* height: 10%; */
+  }
+  .meal-div{
+    height: 50vh;
+  }
+  .mobile-log{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* height: 200vh; */
   }
 }

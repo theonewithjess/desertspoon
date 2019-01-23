@@ -194,7 +194,7 @@ class DailyLog extends Component {
                     <div className="food-log">
 
 
-                        <div >
+                        <div className="mobile-log">
                             <div className="date">
                              
                                 {/* {this.state.selectedDate && <p>Day: {this.state.selectedDate.toLocaleDateString()}</p>}

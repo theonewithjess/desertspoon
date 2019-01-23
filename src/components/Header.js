@@ -64,6 +64,7 @@ class Header extends Component {
                         <div className="log-div">
                             
                             <Link to="/dailylog" className="nav-link">Food Log</Link>
+                            <p className="nav-link">|</p>
                             <Link to="/" className="nav-link" onClick={this.handleLogout}>Logout</Link>
                         </div>
                             :
@@ -78,7 +79,7 @@ class Header extends Component {
                         
                     
                     
-                    <span className="menu"><i className="fa fa-bars" onClick={this.showMenu} transition={10000} ></i></span>
+                    {/* <span className="menu"><i className="fa fa-bars" onClick={this.showMenu} transition={10000} ></i></span>
                     {
                         this.state.showMenu ? ( 
                             <div className="drop-menu" id="slide"onMouseLeave={this.showMenu}>
@@ -90,7 +91,7 @@ class Header extends Component {
                                 
                             </div>
                         ) : (null)
-                    }
+                    } */}
                 </div>
             </header>
         )
