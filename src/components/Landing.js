@@ -21,7 +21,7 @@ class Landing extends Component {
     }
         
     nextProperty = () => {
-        if(nextPrev.nextPropertyTest(this.state.property.index,  this.state.properties.length-1)){
+        if(this.state.property.index === this.state.properties.length-1){
             let newIndex = 0
             this.setState({
                 property: data.properties[newIndex]

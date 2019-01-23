@@ -20,8 +20,11 @@ describe('types', () => {
     it('Check if property is false',()=>{
         expect(nextPropertyTest(7,6)).toEqual(false)
     })
+    it('Check if property is true',()=>{
+        expect(prevPropertyTest(7,6)).toEqual(true)
+    })
     it('Check if property is false',()=>{
-        expect(nextPropertyTest(7,6)).toEqual(false)
+        expect(prevPropertyTest(7,8)).toEqual(false)
     })
   })
   

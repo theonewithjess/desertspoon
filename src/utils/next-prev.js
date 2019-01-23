@@ -6,8 +6,8 @@ module.exports = {
             return false
         }
     },
-    prevPropertyTest: (index, length) => {
-        if(index === length+1){
+    prevPropertyTest: (index, num) => {
+        if(index === num){
             return true
         } else{
             return false
