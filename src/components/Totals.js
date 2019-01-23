@@ -60,19 +60,15 @@ class Totals extends Component {
                 <Chart protein={(this.state.totalProtein*4)/this.state.totalCalories}
                 carbohydrates={(this.state.totalCarbohydrates*4)/this.state.totalCalories}
                 fat={(this.state.totalFat*9)/this.state.totalCalories}/>
-
             </div>
-
       </div>
     )
   }
 }
 function mapStateToProps(state){
-    let { user} = state
+    let {user} = state
     return{
-        
         user
-        
     }
 }
 export default connect(mapStateToProps)(Totals)

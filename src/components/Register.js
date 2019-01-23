@@ -6,8 +6,6 @@ import {Link} from 'react-router-dom'
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Header from './Header';
-
 
 class Register extends Component {
     constructor(){
@@ -29,48 +27,28 @@ class Register extends Component {
             [name]: value
         })
     }
-    
     handleKeyPress = (event) => {
-        
-            if(event.key==="Enter"){
-                // axios.post('/auth/register', this.state).then(response => {
-                //     console.log(1111111, response)
-                //     let user = response.data
-                //     this.props.userLoggedIn(user)
-                // }).catch(error => {
-                //     console.log(error.response)
-                //     toast.error('email already exists')
-                // })
-                this.handleRegister()
-            }
+        if(event.key==="Enter"){
+            this.handleRegister()
+        }
     }
-
     handleRegister = () => {
         if(this.state.password === this.state.confirmPassword){
             axios.post('/auth/register', this.state).then(response => {
-                console.log(1111111, response)
                 let user = response.data
                 this.props.userLoggedIn(user)
             }).catch(error => {
-                console.log(error.response)
                 toast.error('email already exists, or invalid')
             })
-
         }else{
             toast.error('passwords dont match')
-        
         }
     }
-    
-
     
     render(){
         return this.props.isAuthenticated ?
             <Redirect to="/"/> :
             <div className="login-component">
-                
-                <Header/>
-
                 <section className="register-container">
                     <div className="user-pass-2">
                         <div className="group">
@@ -104,17 +82,14 @@ class Register extends Component {
                             <span className="bar"></span>
                             <label>Confirm password</label>
                         </div>
-                        <div className="group">
+                        {/* <div className="group">
                             <input className="login-input" value={this.state.calorieGoal} onChange={this.handleChange} onKeyPress={this.handleKeyPress}  type="text" name="calorieGoal" required/>
                             <span className="highlight"></span>
                             <span className="bar"></span>
                             <label>Daily calorie goal</label>
-                        </div>
-                        
+                        </div> */}
                     </div>
-
                     <div className="login-buttons">
-                        
                         <button className="login-button" onClick={this.handleRegister}>Register</button>
                         <p id="signup-link">Have an account? <Link to="/login">Log in</Link></p>
                         {this.state.error}
@@ -131,17 +106,8 @@ class Register extends Component {
                         />
                     </div>
                 </section>
-
-            
             </div>
-
-        
-            
-
-
-
-   
-}
+    }
 }
 
 function mapStateToProps(state){
@@ -150,6 +116,5 @@ function mapStateToProps(state){
         isAuthenticated
     }
 }
-
 
 export default connect(mapStateToProps, {userLoggedIn})(Register)

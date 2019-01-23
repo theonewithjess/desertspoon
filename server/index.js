@@ -5,7 +5,7 @@ const express = require('express'),
     massive = require('massive'),
     session = require('express-session'),
     {CONNECTION_STRING, SERVER_PORT: PORT, SESSION_SECRET, APP_ID, APP_KEY} = process.env,
-    fl = require('./controller/FoodLog'),
+    fl = require('./controllers/FoodLog'),
     ac = require('./controllers/Auth')
 
 app.use(bodyParser.json())

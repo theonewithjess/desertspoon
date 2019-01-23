@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
-// import 'font-awesome/css/font-awesome.min.css';
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
-import {userLoggedOut, searchProducts} from '../ducks/reducer'
+import {userLoggedOut} from '../ducks/reducer'
 import axios from 'axios'
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 class Header extends Component {
@@ -47,10 +46,6 @@ class Header extends Component {
         })
       
     }
-
-
-
-
     render() {
         return (
             <header className="navbar" style={{transform: `translate(0, ${this.state.slide})`, transition: 'transform 300ms linear'}}>
@@ -75,23 +70,6 @@ class Header extends Component {
                             <Link to="/register" className="nav-link">Sign up</Link>
                         </div>
                         }
-                        
-                        
-                    
-                    
-                    {/* <span className="menu"><i className="fa fa-bars" onClick={this.showMenu} transition={10000} ></i></span>
-                    {
-                        this.state.showMenu ? ( 
-                            <div className="drop-menu" id="slide"onMouseLeave={this.showMenu}>
-                                <h1>Test</h1>
-                                <h1>Test</h1>
-                                <h1>Test</h1>
-                                <h1>Test</h1>
-                                <h1>Test</h1>
-                                
-                            </div>
-                        ) : (null)
-                    } */}
                 </div>
             </header>
         )
