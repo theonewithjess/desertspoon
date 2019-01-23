@@ -43,10 +43,10 @@ class Totals extends Component {
   render() {
     return (
       <div className="dailylog-total-div">
-            <div>
+            {/* <div>
                 Daily Calorie Goal:
                 {this.props.user.calorie_goal}
-            </div>
+            </div> */}
             <div className="daily-totals">
                 <p id="macros">TOTALS</p>
                 <p id="macros">Calories: {this.state.totalCalories ? this.state.totalCalories : 0}</p>

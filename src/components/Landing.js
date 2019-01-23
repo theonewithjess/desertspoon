@@ -105,13 +105,17 @@ class Landing extends Component {
              
             </div>
             <div className="landing-2">
-                <div className="search-div">
-                    <h1 id="search-title">Learn more about what you eat, search over 700,000 foods to get nutrient information.</h1>
-                    <div className="search-container"> 
-                        <input className="search-bar" placeholder="... try searching your favorite food" onChange={this.updateInput} onKeyDown={this.keyPress}></input>
-                        <i className="fa fa-search" onClick={this.redirect}></i>
+                {this.props.isAuthenticated ? 
+                                    <div className="search-div"></div>
+                                    :
+                    <div className="search-div">
+                        <h1 id="search-title">Learn more about what you eat, search over 700,000 foods to get nutrient information.</h1>
+                        <div className="search-container"> 
+                            <input className="search-bar" placeholder="... try searching your favorite food" onChange={this.updateInput} onKeyDown={this.keyPress}></input>
+                            <i className="fa fa-search" onClick={this.redirect}></i>
+                        </div>
                     </div>
-                </div>
+                }
                 <h1 id="tracker-title">You have goals? We have tools to help you</h1>
                 <div className="features">
                     <div className="feature-container">
