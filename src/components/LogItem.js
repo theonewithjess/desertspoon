@@ -53,13 +53,7 @@ export default class LogItem extends Component {
                             <p>carbohydrates: {carbohydrates}g</p>
                             <p>fat: {fat}g</p>
                         </div>
-
                 </div>
-                
-
-                
-                
-                
             </div>
         )
     }

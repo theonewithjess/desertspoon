@@ -8,6 +8,7 @@ let initialState = {
 const USER_LOGGED_IN = 'USER_LOGGED_IN'
 const USER_LOGGED_OUT = 'USERA_LOGGED_OUT'
 const SEARCH_FOODS = 'SEARCH_FOODS'
+export let types = {USER_LOGGED_IN, USER_LOGGED_OUT, SEARCH_FOODS}
 
 
 export default function reducer(state = initialState, action){

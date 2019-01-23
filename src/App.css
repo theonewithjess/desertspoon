@@ -159,7 +159,7 @@ button{
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url('./board-bread-breakfast-349610.jpg');
+  background-image: url('./media/board-bread-breakfast-349610.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -236,7 +236,7 @@ button{
 }
 .landing-1{
   height: 100vh;
-  background-image: url('./hermes-rivera-258743-unsplash.jpg') ;
+  background-image: url('./media/hermes-rivera-258743-unsplash.jpg') ;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -679,7 +679,7 @@ button{
 .feature-pie{
   /* border: 1px solid blue; */
   height: 35vh;
-  background-image: url('./Screen\ Shot\ 2019-01-22\ at\ 9.38.01\ AM.png') ;
+  background-image: url('./media/Screen\ Shot\ 2019-01-22\ at\ 9.38.01\ AM.png') ;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat; 
@@ -691,7 +691,7 @@ button{
 .feature-graph{
   /* border: 1px solid blue; */
   height: 35vh;
-  background-image: url('./Screen\ Shot\ 2019-01-22\ at\ 9.38.12\ AM.png') ;
+  background-image: url('./media/Screen\ Shot\ 2019-01-22\ at\ 9.38.12\ AM.png') ;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat; 
@@ -703,7 +703,7 @@ button{
 .feature-search{
   /* border: 1px solid blue; */
   height: 35vh;
-  background-image: url('./Screen\ Shot\ 2019-01-22\ at\ 9.38.37\ AM.png');
+  background-image: url('./media/Screen\ Shot\ 2019-01-22\ at\ 9.38.37\ AM.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover; 
@@ -829,6 +829,16 @@ button{
   align-content: center;
   margin: auto;
   box-shadow: 0px 0px 2px 3px rgb(47, 79, 79, .8);
+}
+
+#austin-brake{
+  background-image: url('http://ios-resources.devmountain.com/public/icon.png');
+}
+#jessica-morgan{
+  background-image: url('./media/Jessica\ Morgan.jpg');
+}
+#austin-overton{
+  background-image: url('./media/Austin\ Overton.jpeg');
 }
 .dev-container{
   display: flex;

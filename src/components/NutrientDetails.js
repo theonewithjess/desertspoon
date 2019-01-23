@@ -21,7 +21,6 @@ export default class NutrientDetails extends Component {
     }
 
     componentDidMount(){
-        console.log("measures", this.props.measures[0])
         this.setState({
             measure: this.props.measures[0].label,
             measureURI: this.props.measures[0].uri,
@@ -40,7 +39,6 @@ export default class NutrientDetails extends Component {
                 }
             ]
         }).then(res => {
-            console.log('nutrients', res)
             this.setState({
                 calories: res.data.calories,
                 nutrientDetails: res.data.totalNutrients, 
@@ -104,7 +102,6 @@ export default class NutrientDetails extends Component {
             )
         })
         let n= this.state.nutrientDetails
-        console.log("state", this.state)
     return (
       <div className="nutrients">
           <div className="nutrient-calculator">
