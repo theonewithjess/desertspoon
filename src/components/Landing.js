@@ -5,6 +5,7 @@ import {searchFoods} from '../ducks/reducer'
 import Card from './Card';
 import data from '../components/data'
 import axios from 'axios'
+import nextPrev from '../utils/next-prev.js'
 
 const APP_ID = `${process.env.REACT_APP_APP_ID}`
 const APP_KEY = `${process.env.REACT_APP_APP_KEY}`
@@ -32,6 +33,7 @@ class Landing extends Component {
             })
         }
     }
+    
         
     prevProperty = () => {
         if(this.state.property.index === 0){

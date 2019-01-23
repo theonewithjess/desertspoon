@@ -1,4 +1,4 @@
-import {types, userLoggedIn, userLoggedOut, searchFoods} from '../ducks/reducer'
+import reducer, {types, userLoggedIn, userLoggedOut, searchFoods} from '../ducks/reducer'
 
 describe('types', () => {
   it('should log in user', () => {
@@ -23,5 +23,28 @@ describe('types', () => {
       }
       expect(searchFoods(foods)).toEqual(expectedAction)
   })
+  it('should update searched foods', () => {
+        const foods = "cheese"
+        const action = {
+            type: types.SEARCH_FOODS,
+            payload: foods
+        }
+        const expectedState = {
+            searchFoods: "cheese"
+        }
+        expect(reducer({}, action)).toEqual(expectedState)
+  })
+  it('should check if user is logged in', () => {
+    const user = "2"
+    const action = {
+        type: types.USER_LOGGED_IN,
+          payload: user
+    }
+    const expectedState = {
+        isAuthenticated: true,
+        user: "2"
+    }
+    expect(reducer({}, action)).toEqual(expectedState)
+  }) 
 })
 
