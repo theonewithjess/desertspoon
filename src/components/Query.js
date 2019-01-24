@@ -3,6 +3,7 @@ import axios from 'axios'
 import QueryResult from './QueryResult'
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
 
 const APP_ID = `${process.env.REACT_APP_APP_ID}`
 const APP_KEY = `${process.env.REACT_APP_APP_KEY}`
@@ -62,15 +63,14 @@ class Query extends Component {
             )
         })
         return(
+            
             <div className="query">
                 <div className="search-container-query">
                     <input className="search-bar-query" type="text" onChange={this.handleInputChange} onKeyDown={this.keyPress} placeholder="search food items" />
                     <i className="fas fa-search" style={{color:"grey"}} onClick={this.query} ></i>
 
                 </div>
-                {
-                    !this.props.isAuthenticated && <h1> <Link to='/login'>Login</Link> or <Link to='/register'>Register</Link> to view nutrient details!</h1>
-                }
+               
                 
                   {
                     queryResults[0] ?
