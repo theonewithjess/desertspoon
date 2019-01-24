@@ -23,7 +23,6 @@ class Query extends Component {
 
     query = () => {
         axios.get(`https://api.edamam.com/api/food-database/parser?ingr=${this.state.query}&app_id=${APP_ID}&app_key=${APP_KEY}`).then(res => {
-            console.log(res)
             this.setState({queryResults: res.data.hints})
            
         })

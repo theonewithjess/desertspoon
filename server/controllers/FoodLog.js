@@ -37,9 +37,6 @@ module.exports = {
             res.status(500).send(error)
         }
     },
-    // updateLogItem : (req, res) => {
-
-    // },
     deleteLogItem : (req, res) => {
         try {
             const db = req.app.get('db')

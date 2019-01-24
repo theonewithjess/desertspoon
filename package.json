@@ -13,6 +13,7 @@
     "date-fns": "^2.0.0-alpha.27",
     "express": "^4.16.4",
     "express-session": "^1.15.6",
+    "jest": "^23.6.0",
     "massive": "^5.7.2",
     "react": "^16.7.0",
     "react-chartjs": "^1.2.0",
@@ -59,6 +60,5 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/theonewithjess/desertspoon/issues"
-  },
-  "homepage": "https://github.com/theonewithjess/desertspoon#readme"
+  }
 }

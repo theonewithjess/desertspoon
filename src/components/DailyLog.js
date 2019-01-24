@@ -6,7 +6,6 @@ import LogItem from './LogItem'
 import Query from './Query'
 import Totals from './Totals'
 import DayPickerInput from 'react-day-picker/DayPickerInput'
-// import 'react-day-picker/lib/style.css'
 import { DateUtils } from 'react-day-picker';
 import dateFnsFormat from 'date-fns/format';
 import dateFnsParse from 'date-fns/parse';
@@ -71,8 +70,6 @@ class DailyLog extends Component {
     render() {
        
         const FORMAT = 'yyyy-MM-dd'
-        console.log('date', this.state.selectedDate)
-        // console.log("food log state", this.state)
         let breakfast = this.state.foodLog.map((e,i) => {
             if(this.state.foodLog[i].meal === 'Breakfast'){
                 let {quantity, measure, measureuri, name, fooduri, calories, protein, carbohydrates, fat, entry_id} = this.state.foodLog[i]
@@ -197,8 +194,6 @@ class DailyLog extends Component {
                         <div className="mobile-log">
                             <div className="date">
                              
-                                {/* {this.state.selectedDate && <p>Day: {this.state.selectedDate.toLocaleDateString()}</p>}
-                                {!this.state.selectedDate && <p>Choose a day</p>} */}
                                 <DayPickerInput onDayChange={this.handleDayChange}  parseDate={this.parseDate} formatDate={this.formatDate} placeholder={`${dateFnsFormat(new Date(), FORMAT)}`} value={this.state.selectedDate} className="date"/>
                                 
                             </div>
@@ -210,7 +205,6 @@ class DailyLog extends Component {
                                     {breakfast}
                                 </div>
                             </div>
-                            {/* <hr id="land3-4"></hr> */}
                             <div className="meal-div">
                                 <h1 id="search-title">Lunch<hr></hr></h1>
                                 
@@ -218,7 +212,6 @@ class DailyLog extends Component {
                                     {lunch}
                                 </div> 
                             </div>
-                            {/* <hr id="land3-4"></hr> */}
                             <div className="meal-div">
                                 <h1 id="search-title">Dinner<hr></hr></h1> 
                                 
@@ -226,7 +219,6 @@ class DailyLog extends Component {
                                     {dinner}
                                 </div>
                             </div>
-                            {/* <hr id="land3-4"></hr> */}
                             <div className="meal-div">
                                 <h1 id="search-title">Snacks<hr></hr></h1>
                                 

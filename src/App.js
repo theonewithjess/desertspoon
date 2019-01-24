@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './reset.css';
 import './App.css';
 import {connect} from 'react-redux'
-import {Switch, Route, withRouter} from 'react-router-dom'
+import {Switch, Route} from 'react-router-dom'
 import {userLoggedIn} from './ducks/reducer'
 import {HashRouter} from 'react-router-dom'
 import axios from 'axios'
@@ -12,8 +12,6 @@ import Login from './components/Login'
 import Register from './components/Register'
 import Query from './components/Query'
 import Header from './components/Header'
-// import LineChart from './components/LineChart'
-// import Chart from './components/Chart'
 
 
 class App extends Component {
@@ -21,9 +19,7 @@ class App extends Component {
     super()
 
     this.state = {
-      isLoading: true,
-      chartData:{},
-      lineChartData:{}
+      isLoading: true
     }
   }
 

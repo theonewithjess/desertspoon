@@ -43,10 +43,10 @@ class Totals extends Component {
   render() {
     return (
       <div className="dailylog-total-div">
-            <div>
+            {/* <div>
                 Daily Calorie Goal:
                 {this.props.user.calorie_goal}
-            </div>
+            </div> */}
             <div className="daily-totals">
                 <p id="macros">TOTALS</p>
                 <p id="macros">Calories: {this.state.totalCalories ? this.state.totalCalories : 0}</p>
@@ -60,19 +60,15 @@ class Totals extends Component {
                 <Chart protein={(this.state.totalProtein*4)/this.state.totalCalories}
                 carbohydrates={(this.state.totalCarbohydrates*4)/this.state.totalCalories}
                 fat={(this.state.totalFat*9)/this.state.totalCalories}/>
-
             </div>
-
       </div>
     )
   }
 }
 function mapStateToProps(state){
-    let { user} = state
+    let {user} = state
     return{
-        
         user
-        
     }
 }
 export default connect(mapStateToProps)(Totals)

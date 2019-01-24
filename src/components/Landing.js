@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
-import Header from './Header'
 import {connect} from 'react-redux'
 import {searchFoods} from '../ducks/reducer'
 import Card from './Card';
@@ -33,6 +32,7 @@ class Landing extends Component {
             })
         }
     }
+    
         
     prevProperty = () => {
         if(this.state.property.index === 0){
@@ -62,7 +62,6 @@ class Landing extends Component {
 
     redirect = e => {
         axios.get(`https://api.edamam.com/api/food-database/parser?ingr=${this.state.query}&app_id=${APP_ID}&app_key=${APP_KEY}`).then(res => {
-            console.log(res)
             this.props.searchFoods(res.data.hints)
             if(this.props.location.pathname !== '/query'){
                 this.props.history.push('/query')
@@ -71,7 +70,7 @@ class Landing extends Component {
     }
 
     render() {
-    const {properties, property} = this.state
+    const {property} = this.state
     return (
         <div>
             
@@ -107,13 +106,17 @@ class Landing extends Component {
              
             </div>
             <div className="landing-2">
-                <div className="search-div">
-                    <h1 id="search-title">Learn more about what you eat, search over 700,000 foods to get nutrient information.</h1>
-                    <div className="search-container"> 
-                        <input className="search-bar" placeholder="... try searching your favorite food" onChange={this.updateInput} onKeyDown={this.keyPress}></input>
-                        <i className="fa fa-search" onClick={this.redirect}></i>
+                {this.props.isAuthenticated ? 
+                                    <div className="search-div"></div>
+                                    :
+                    <div className="search-div">
+                        <h1 id="search-title">Learn more about what you eat, search over 700,000 foods to get nutrient information.</h1>
+                        <div className="search-container"> 
+                            <input className="search-bar" placeholder="... try searching your favorite food" onChange={this.updateInput} onKeyDown={this.keyPress}></input>
+                            <i className="fa fa-search" onClick={this.redirect}></i>
+                        </div>
                     </div>
-                </div>
+                }
                 <h1 id="tracker-title">You have goals? We have tools to help you</h1>
                 <div className="features">
                     <div className="feature-container">
@@ -142,33 +145,25 @@ class Landing extends Component {
             <div className="landing-3">
                 <h1 id="search-title">Victory Wall!</h1>
                 <div className="victory-carousel">
+                    <div className={`cards-slider active-slide-${property.index}`}>
+                        <button 
+                        className="victory-buttons"
+                        type="button"
+                        onClick={() => this.prevProperty()} 
+                        ><h2>{"<<"}</h2></button>
 
-                    
-                
-                        <div className={`cards-slider active-slide-${property.index}`}>
-                                <button 
-                                className="victory-buttons"
-                                type="button"
-                                onClick={() => this.prevProperty()} 
-                                ><h2>{"<<"}</h2></button>
-
-                                    <div className="cards-slider-wrapper" >
-                                        {
-                                            <Card property={property} />
-                                        }
-                                    </div>
-                                
-                                <button 
-                                className="victory-buttons1"
-                                type="button"
-                                onClick={() => this.nextProperty()}
-                                ><h2>{">>"}</h2></button>
-                        </div>
-                    
-
-
-
-
+                            <div className="cards-slider-wrapper" >
+                                {
+                                    <Card property={property} />
+                                }
+                            </div>
+                        
+                        <button 
+                        className="victory-buttons1"
+                        type="button"
+                        onClick={() => this.nextProperty()}
+                        ><h2>{">>"}</h2></button>
+                    </div>
                 </div>
              
             </div>
@@ -179,30 +174,42 @@ class Landing extends Component {
                 <h1 id="search-title">Meet the team behind the scenes</h1>
             <div className="landing-4">
                 <div className="dev-container">
-                    <div className="dev-team">
+                    <div className="dev-team" id="austin-overton">
                         
                     </div>
                     <h1>Austin Overton</h1>
+                    <h2><a href="https://austinsoverton.wixsite.com/stevenoverton">portfolio</a></h2>
                     <hr id="land3-4"></hr>
-                    <p>simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    <p>
+                        <a href="https://github.com/Zinthero"><i class="fab fa-github-square"></i></a>    
+                        <a href="https://www.linkedin.com/in/steven-austin-overton/"><i class="fab fa-linkedin"></i></a>
+                    </p>
                 </div>
 
                 <div className="dev-container">
-                    <div className="dev-team">
+                    <div className="dev-team" id="jessica-morgan">
                        
                     </div>
                     <h1>Jessica Morgan</h1>
+                    <h2><a href="https://www.theonewithjess.com/">portfolio</a></h2>
                     <hr id="land3-4"></hr>
-                    <p>simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    <p>
+                        <a href="https://github.com/theonewithjess"><i class="fab fa-github-square"></i></a>    
+                        <a href="https://www.linkedin.com/in/theonewithjess/"><i class="fab fa-linkedin"></i></a>
+                    </p>
                 </div>
 
                 <div className="dev-container">
-                    <div className="dev-team">
+                    <div className="dev-team" id="austin-brake">
                         
                     </div>
                     <h1>Austin Brake</h1>
+                    {/* <h2><a href="">Portfolio</a></h2> */}
                     <hr id="land3-4"></hr>
-                    <p>simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    <p>
+                        <a href="https://github.com/codeBrake"><i class="fab fa-github-square"></i></a>    
+                        <a href="https://www.linkedin.com/in/austin-brake/"><i class="fab fa-linkedin"></i></a>
+                    </p>
                 </div>
              
             </div>

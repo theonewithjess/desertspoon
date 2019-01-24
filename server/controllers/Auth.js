@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 
 module.exports = {
     login: async (req, res) => {
@@ -44,7 +44,6 @@ module.exports = {
             const hash = bcrypt.hashSync(password, salt)
             
             let response = await db.createUser({firstName, lastName, email, hash, calorieGoal})
-            console.log(333333333, response)
             let newUser = response[0]
 
             delete newUser.password
