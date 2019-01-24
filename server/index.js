@@ -10,7 +10,7 @@ const express = require('express'),
 
 app.use(bodyParser.json())
 
-// app.use( express.static( `${__dirname}/../build` ) );
+app.use( express.static( `${__dirname}/../build` ) );
 
 app.use(session({
     secret: SESSION_SECRET,
@@ -36,7 +36,6 @@ app.get('/auth/currentUser', ac.getCurrentUser)
 app.post('/api/totals', fl.getTotals)
 app.post('/api/foodlog', fl.addToLog)
 app.post('/api/foodlog/date', fl.getLog)
-// app.put('/api/foodlog/:id', fl.updateLogItem)
 app.delete('/api/foodlog/:id', fl.deleteLogItem)
 
 
