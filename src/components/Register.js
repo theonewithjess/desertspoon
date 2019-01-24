@@ -17,7 +17,7 @@ class Register extends Component {
             email: '',
             password: '',
             confirmPassword: '',
-            calorieGoal: '',
+            calorieGoal: 0,
             error: ''
         }
     }
